@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BackEndProject.DAL;
+using BackEndProject.Models;
+using BackEndProject.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace BackEndProject.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly AppDbContext _db;
+        public HomeController(AppDbContext db)
+        {
+            _db = db;
+        }
+        public IActionResult Index()
+        {
+            Bio bio = _db.Bios.FirstOrDefault();
+            IEnumerable<Slider> sliders = _db.Sliders.ToList();
+            IEnumerable<Event> events = _db.Events.OrderByDescending(e => e.Id).Take(4).ToList();
+            IEnumerable<Course> courses = _db.Courses.Include(c=>c.CourseContent).OrderByDescending(c => c.Id).Take(3).ToList();
+            IEnumerable<Blog> blogs = _db.Blogs.Include(b=>b.AppUser).OrderByDescending(b => b.Id).Take(3).ToList();
+            HomeVM model = new HomeVM
+            {
+                Bio = bio,
+                Sliders = sliders,
+                Events = events,
+                Courses = courses,
+                Blogs = blogs
+            };
+            return View(model);
+        }
+    }
+}

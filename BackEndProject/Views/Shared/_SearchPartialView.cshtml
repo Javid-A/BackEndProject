@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Course>
+
+@foreach (Course course in Model)
+{
+    <div class="allCourse col-md-4 col-sm-6 col-xs-12">
+        <div class="single-course mb-70">
+            <div class="course-img">
+                <a asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">
+                    <img src="img/course/@course.ImagePath" alt="course">
+                    <div class="course-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="course-content">
+                <h3><a asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">@course.Name</a></h3>
+                @if (course.CourseContent.AboutCourse.Length >= 130)
+                {
+                    <p>
+                        @course.CourseContent.AboutCourse.Substring(0, 130)...
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @course.CourseContent.AboutCourse
+                    </p>
+                }
+                <a class="default-btn" asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">read more</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+

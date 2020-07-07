@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Blog>
+
+@foreach (Blog blog in Model)
+{
+	<li style="display:flex">
+		<a style="font-size: 12px" asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">
+			@blog.AppUser.UserName - @blog.Title
+		</a>
+	</li>
+}
+

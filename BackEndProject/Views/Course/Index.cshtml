@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>courses</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Course Start -->
+<div class="course-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="course-title">
+                    <h3>search courses</h3>
+                </div>
+                <div class="course-form">
+                    <form id="search">
+                        <ul>
+                            <li>
+                                <input id="search-course-text" type="search" placeholder="Search..." name="search" />
+                            </li>
+                            <li id="searchLi">
+                                <div style="z-index:15 !important;position: absolute;">
+                                    <ul id="searchULv2" style="background-color:whitesmoke">
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <button type="submit" id="searchBtnv2">search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <span class="alert alert-danger errorText" style="display:none"></span>
+        <div class="row allCourseParent">
+            @await Component.InvokeAsync("Course")
+        </div>
+    </div>
+</div>
+<!-- Course End -->
