@@ -40,7 +40,7 @@
 				<div class="about-content">
 					<h2>WELCOME TO <span>EDUHOME</span></h2>
 					<p>@Model.Bio.About</p>
-					<a class="default-btn" href="about.html">view courses</a>
+					<a class="default-btn" asp-controller="Course" asp-action="Index">view courses</a>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-6">
@@ -119,30 +119,13 @@
 				<div class="notice-left-wrapper">
 					<h3>notice board</h3>
 					<div class="notice-left">
-						<div class="single-notice-left mb-23 pb-20">
-							<h4>5, June 2017</h4>
-							<p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-						</div>
-						<div class="single-notice-left hidden-sm mb-23 pb-20">
-							<h4>4, June 2017</h4>
-							<p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-						</div>
-						<div class="single-notice-left pb-70">
-							<h4>3, June 2017</h4>
-							<p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-						</div>
-						<div class="single-notice-left mb-23 pb-20">
-							<h4>5, June 2017</h4>
-							<p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-						</div>
-						<div class="single-notice-left hidden-sm mb-23 pb-20">
-							<h4>4, June 2017</h4>
-							<p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-						</div>
-						<div class="single-notice-left pb-70">
-							<h4>3, June 2017</h4>
-							<p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-						</div>
+						@foreach (Notice notice in Model.Notices)
+						{
+							<div class="single-notice-left mb-23 pb-20">
+								<h4>@notice.Date</h4>
+								<p>@notice.Note</p>
+							</div>
+						}
 					</div>
 				</div>
 			</div>
@@ -196,12 +179,12 @@
 					<div class="single-testimonial">
 						<div class="testimonial-info">
 							<div class="testimonial-img">
-								<img src="~/img/testimonial/testimonial.jpg" alt="testimonial">
+								<img src="~/img/testimonial/@Model.Testimonial.StudentImage" alt="testimonial">
 							</div>
 							<div class="testimonial-content">
-								<p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and I will give you a coete account of the system, and expound the actual</p>
-								<h4>David Morgan</h4>
-								<h5>Student, CSE</h5>
+								<p>@Model.Testimonial.AboutStudent</p>
+								<h4>@Model.Testimonial.StudentFullname</h4>
+								<h5>@Model.Testimonial.Degree</h5>
 							</div>
 						</div>
 					</div>

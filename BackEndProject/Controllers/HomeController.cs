@@ -24,13 +24,17 @@ namespace BackEndProject.Controllers
             IEnumerable<Event> events = _db.Events.OrderByDescending(e => e.Id).Take(4).ToList();
             IEnumerable<Course> courses = _db.Courses.Include(c=>c.CourseContent).OrderByDescending(c => c.Id).Take(3).ToList();
             IEnumerable<Blog> blogs = _db.Blogs.Include(b=>b.AppUser).OrderByDescending(b => b.Id).Take(3).ToList();
+            IEnumerable<Notice> notices = _db.Notices.OrderByDescending(n => n.Id).Take(6).ToList();
+            Testimonial testimonial = _db.Testimoinals.FirstOrDefault();
             HomeVM model = new HomeVM
             {
                 Bio = bio,
                 Sliders = sliders,
                 Events = events,
                 Courses = courses,
-                Blogs = blogs
+                Blogs = blogs,
+                Notices=notices,
+                Testimonial=testimonial
             };
             return View(model);
         }

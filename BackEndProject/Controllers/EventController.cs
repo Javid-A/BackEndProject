@@ -43,6 +43,22 @@ namespace BackEndProject.Controllers
             };
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Detail")]
+        public async Task<IActionResult> SendMessage(ContactVM _message)
+        {
+            Reply newReply = new Reply
+            {
+                Name = _message.Name,
+                Email = _message.Email,
+                Subject = _message.Subject,
+                Message = _message.Message
+            };
+            _db.Replies.Add(newReply);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Detail");
+        }
         public IActionResult Search(string search)
         {
             List<Event> model = _db.Events.Where(e => e.Title.Contains(search) || e.Venue.Contains(search)).OrderByDescending(c => c.Id).Take(5).ToList();

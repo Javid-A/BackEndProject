@@ -1,0 +1,45 @@
+﻿@model ContactVM
+<div class="reply-area">
+	<h3>LEAVE A message</h3>
+	<p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
+	<form method="post">
+		<div class="row">
+			<div class="col-md-12">
+				<p>Name</p>
+				<input asp-for="Name" id="name" />
+			</div>
+			<div class="col-md-12">
+				<p>Email</p>
+				<input asp-for="Email" id="email" />
+				<span asp-validation-for="Email" class="text text-danger" style="position: relative;
+    bottom: 15px;"></span>
+			</div>
+			<div class="col-md-12">
+				<p>Subject</p>
+				<input asp-for="Subject" id="subject" />
+				<p>Massage</p>
+				<textarea asp-for="Message" id="message" cols="15" rows="10"></textarea>
+			</div>
+		</div>
+		<button type="submit" id="replyBtn" class="btn btn-success">Send Message</button>
+	</form>
+</div>
+
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$("#replyBtn").click(function (e) {
+			e.preventDefault();
+			swal({
+				title: "Thanks for reply",
+				text: "We will response as soon as possible",
+				icon: "success",
+				button: "Ok",
+			});
+		})
+	</script>
+}
+
+

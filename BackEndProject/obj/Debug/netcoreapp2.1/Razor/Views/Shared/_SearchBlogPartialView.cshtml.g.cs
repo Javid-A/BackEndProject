@@ -70,7 +70,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("\t<li style=\"display:flex\">\r\n\t\t");
             EndContext();
             BeginContext(92, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a864d17737247b581170ee69ee7dd21", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9233ef76b0e44e7eb49e13572bc21872", async() => {
                 BeginContext(185, 5, true);
                 WriteLiteral("\r\n\t\t\t");
                 EndContext();

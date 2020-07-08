@@ -25,5 +25,8 @@ namespace BackEndProject.DAL
 		public DbSet<Speaker> Speakers { get; set; }
 		public DbSet<EventSpeaker> EventSpeakers { get; set; }
 		public DbSet<Bio> Bios { get; set; }
+		public DbSet<Notice> Notices { get; set; }
+		public DbSet<Testimonial> Testimoinals { get; set; }
+		public DbSet<Reply> Replies { get; set; }
 	}
 }

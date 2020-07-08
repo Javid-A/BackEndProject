@@ -31,8 +31,18 @@ namespace BackEndProject.Migrations
                     b.Property<string>("AboutPath")
                         .IsRequired();
 
+                    b.Property<string>("Address");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Link");
+
                     b.Property<string>("LogoPath")
                         .IsRequired();
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("PhoneNumber2");
 
                     b.Property<string>("Video")
                         .IsRequired();
@@ -204,6 +214,42 @@ namespace BackEndProject.Migrations
                     b.ToTable("EventSpeakers");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.Notice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Date")
+                        .IsRequired();
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notices");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Reply", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Subject");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Replies");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -332,6 +378,29 @@ namespace BackEndProject.Migrations
                         .IsUnique();
 
                     b.ToTable("TeacherSkills");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Testimonial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AboutStudent")
+                        .IsRequired();
+
+                    b.Property<string>("Degree")
+                        .IsRequired();
+
+                    b.Property<string>("StudentFullname")
+                        .IsRequired();
+
+                    b.Property<string>("StudentImage")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Testimoinals");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

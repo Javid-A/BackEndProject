@@ -34,6 +34,22 @@ namespace BackEndProject.Controllers
             };
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Detail")]
+        public async Task<IActionResult> SendMessage(ContactVM _message)
+        {
+            Reply newReply = new Reply
+            {
+                Name = _message.Name,
+                Email = _message.Email,
+                Subject = _message.Subject,
+                Message = _message.Message
+            };
+            _db.Replies.Add(newReply);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Detail");
+        }
         public IActionResult Search(string search)
         {
             List<Course> model = _db.Courses.Where(c => c.Name.Contains(search)).OrderBy(c => c.Name).ToList();
@@ -44,7 +60,7 @@ namespace BackEndProject.Controllers
         {
             List<Course> model = _db.Courses.Include(c=>c.CourseContent).Include(c=>c.CourseFeature).Where(c => c.Name.Contains(search)).OrderBy(c=>c.Name).ToList();
             if (model.Count == 0) return Content("null");
-            return PartialView("_SearchPartialView", model);
+            return PartialView("_SearchCoursePartialView", model);
         }
     }
 }

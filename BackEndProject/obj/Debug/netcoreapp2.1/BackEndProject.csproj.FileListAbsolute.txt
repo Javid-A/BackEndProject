@@ -75,8 +75,13 @@ C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.pdb
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.csproj.CopyComplete
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Course\Default.cshtml.g.cs
-C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SearchPartialView.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SearchBlogPartialView.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SearchBlogBtnPartialView.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Event\Detail.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SearchEventPartialView.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\About\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SearchCoursePartialView.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ReplyPartialView.cshtml.g.cs
