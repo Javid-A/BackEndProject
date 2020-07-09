@@ -143,3 +143,8 @@ C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Edit.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Delete.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Create.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Detail.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Create.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Delete.cshtml.g.cs

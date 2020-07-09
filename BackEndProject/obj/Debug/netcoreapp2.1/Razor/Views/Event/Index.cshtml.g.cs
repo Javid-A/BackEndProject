@@ -111,12 +111,12 @@ using BackEndProject.ViewModels;
             WriteLiteral("                        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n                            <div class=\"single-event mb-60\">\r\n                                <div class=\"event-img\">\r\n                                    ");
             EndContext();
             BeginContext(1129, 393, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "425b8de56e354fed936b6eb2e61187f5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbab6bd16ba74bb890c037c349b2fbd7", async() => {
                 BeginContext(1199, 42, true);
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(1241, 51, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a72ccfbaa9354970b7e9785ee24d5f94", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "dc464a6e29034e7e826d0afb377628d6", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -184,7 +184,7 @@ AddHtmlAttributeValue("", 1263, item.ImagePath, 1263, 15, false);
             WriteLiteral("</h3>\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"event-content text-left\">\r\n                                    <h4>");
             EndContext();
             BeginContext(1842, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d00c41757b24b98be4ca70b9b6d9323", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3136508febd1438ea8b34f54eb46e9f0", async() => {
                 BeginContext(1913, 10, false);
 #line 45 "C:\Users\nijat\source\repos\BackEndProject\BackEndProject\Views\Event\Index.cshtml"
                                                                                                          Write(item.Title);
@@ -245,7 +245,7 @@ AddHtmlAttributeValue("", 1263, item.ImagePath, 1263, 15, false);
             WriteLiteral("</li>\r\n                                    </ul>\r\n                                    <div class=\"event-content-right\">\r\n                                        ");
             EndContext();
             BeginContext(2290, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e3e8bd15a474c9382268a409ee02d33", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c46e2f6dc9e4fe79bec5e2ba62cb264", async() => {
                 BeginContext(2380, 8, true);
                 WriteLiteral("join now");
                 EndContext();
@@ -298,7 +298,7 @@ AddHtmlAttributeValue("", 1263, item.ImagePath, 1263, 15, false);
                             ");
             EndContext();
             BeginContext(2889, 279, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bff778f044a429eb4757dc8ca0ca1f6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e3f40c62756943a0b0d5d4ad3fe9db7f", async() => {
                 BeginContext(2918, 243, true);
                 WriteLiteral("\r\n                                <input id=\"searchTextEventv2\" type=\"search\" placeholder=\"Search...\" name=\"search\" />\r\n                                <ul id=\"searchULv2\">\r\n\r\n                                </ul>\r\n                            ");
                 EndContext();
@@ -338,9 +338,9 @@ AddHtmlAttributeValue("", 1263, item.ImagePath, 1263, 15, false);
                             ");
             EndContext();
             BeginContext(4004, 154, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6f7beaa70774951bb6f674e98198b07", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c9f51d29db84b00a55b8e8ccf711975", async() => {
                 BeginContext(4094, 60, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "272bf6e19e024761918067e241f5770f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a5df0f1c4d2640ebb08b1c8031dd8433", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -405,12 +405,12 @@ AddHtmlAttributeValue("", 4115, Model.BestTheme.ImagePath, 4115, 26, false);
             WriteLiteral("                            <div class=\"single-post mb-30\">\r\n                                <div class=\"single-post-img\">\r\n                                    ");
             EndContext();
             BeginContext(4646, 443, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46734a9251404cdb8ae11c6ebad5e64a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "929f634ec36a4524aa42c16b0026b338", async() => {
                 BeginContext(4715, 42, true);
                 WriteLiteral("\r\n                                        ");
                 EndContext();
                 BeginContext(4757, 104, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fd99d0fd6b4a41498e559031a092b055", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d196082b56854635a594e63156bd57f2", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -469,7 +469,7 @@ AddHtmlAttributeValue("", 4833, post.ImagePath, 4833, 15, false);
             WriteLiteral("\r\n                                </div>\r\n                                <div class=\"single-post-content\">\r\n                                    <h4>");
             EndContext();
             BeginContext(5238, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb9689a7a26f41dba2a3905cd98f6290", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a175a18231ef441c8527ee29869c43b4", async() => {
                 BeginContext(5308, 10, false);
 #line 103 "C:\Users\nijat\source\repos\BackEndProject\BackEndProject\Views\Event\Index.cshtml"
                                                                                                         Write(post.Title);

@@ -70,7 +70,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("    <div class=\"allCourse col-md-4 col-sm-6 col-xs-12\">\r\n        <div class=\"single-course mb-70\">\r\n            <div class=\"course-img\">\r\n                ");
             EndContext();
             BeginContext(222, 298, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30be8eba8e7a4a46a22b3811083139b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d699ab54ea7402dbde0294c24d7f2b6", async() => {
                 BeginContext(295, 26, true);
                 WriteLiteral("\r\n                    <img");
                 EndContext();
@@ -118,7 +118,7 @@ WriteAttributeValue("", 338, course.ImagePath, 338, 17, false);
             WriteLiteral("\r\n            </div>\r\n            <div class=\"course-content\">\r\n                <h3>");
             EndContext();
             BeginContext(604, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a0a60416f2b4487a9f5be433a8ba8279", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0671e60399024d6f80fcae53f145f22e", async() => {
                 BeginContext(678, 11, false);
 #line 16 "C:\Users\nijat\source\repos\BackEndProject\BackEndProject\Views\Shared\_SearchCoursePartialView.cshtml"
                                                                                         Write(course.Name);
@@ -206,7 +206,7 @@ WriteAttributeValue("", 338, course.ImagePath, 338, 17, false);
             WriteLiteral("                ");
             EndContext();
             BeginContext(1125, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f5e773c503f4da1b141a4f9acf551ff", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c55c94d4a7748eeba766f98a1b312c4", async() => {
                 BeginContext(1218, 9, true);
                 WriteLiteral("read more");
                 EndContext();

@@ -1,0 +1,118 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 style="font-size:23px !important" class="card-title">Edit Course</h4>
+                <h4 class="card-title" style="margin-top:40px">Current Course Image</h4>
+                <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                <img src="~/img/course/@Model.ImagePath" width="450" alt="Alternate Text" />
+                <form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <h4 style="margin-top:30px" class="card-title">Photo</h4>
+                        <input asp-for="Photo" class="form-control" accept="image/*">
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+
+                        <h4 style="margin-top:30px" class="card-title">Name</h4>
+                        <input asp-for="Name" value="@Model.Name" style="width:100%" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+
+                        <h4 style="margin-top:30px" class="card-title">Description</h4>
+                        <span asp-validation-for="Description" class="text-danger">Required</span>
+                        <textarea asp-for="Description" class="ckeditor1">@Model.Description</textarea>
+
+                        <h4 style="margin-top:30px" class="card-title">About course</h4>
+                        <span asp-validation-for="CourseContent.AboutCourse" class="text-danger">Required</span>
+                        <textarea asp-for="CourseContent.AboutCourse" class="ckeditor2">@Model.CourseContent.AboutCourse</textarea>
+
+                        <h4 style="margin-top:30px" class="card-title">How to Apply</h4>
+                        <textarea asp-for="CourseContent.HTA" class="ckeditor3">@Model.CourseContent.HTA</textarea>
+
+                        <h4 style="margin-top:30px" class="card-title">Certification</h4>
+                        <textarea asp-for="CourseContent.Certification" class="ckeditor4">@Model.CourseContent.Certification</textarea>
+
+                        <h4 style="margin-top:30px" class="card-title">Starts</h4>
+                        <input asp-for="CourseFeature.Starts" value="@Model.CourseFeature.Starts" style="width:100%" />
+                        <span asp-validation-for="CourseFeature.Starts" class="text-danger"></span>
+
+
+                        <h4 style="margin-top:30px" class="card-title">Duration</h4>
+                        <input asp-for="CourseFeature.Duration" value="@Model.CourseFeature.Duration" style="width:100%" />
+                        <span asp-validation-for="CourseFeature.Duration" class="text-danger"></span>
+
+                        <h4 style="margin-top:30px" class="card-title">Class duration</h4>
+                        <input asp-for="CourseFeature.ClassDuration" value="@Model.CourseFeature.ClassDuration" style="width:100%" />
+                        <span asp-validation-for="CourseFeature.ClassDuration" class="text-danger"></span>
+
+                        <h4 style="margin-top:30px" class="card-title">SKill level</h4>
+                        <input asp-for="CourseFeature.SkillLevel" value="@Model.CourseFeature.SkillLevel" style="width:100%" />
+                        <span asp-validation-for="CourseFeature.SkillLevel" class="text-danger"></span>
+
+                        <h4 style="margin-top:30px" class="card-title">Language</h4>
+                        <input asp-for="CourseFeature.Langugage" value="@Model.CourseFeature.Langugage" style="width:100%" />
+                        <span asp-validation-for="CourseFeature.Langugage" class="text-danger"></span>
+
+                        <h4 style="margin-top:30px" class="card-title">Students</h4>
+                        <input asp-for="CourseFeature.Students" value="@Model.CourseFeature.Students" style="width:100%" />
+
+                        <h4 style="margin-top:30px" class="card-title">Assesments</h4>
+                        <input asp-for="CourseFeature.Assesments" value="@Model.CourseFeature.Assesments" style="width:100%" />
+
+                        <h4 style="margin-top:30px" class="card-title">Fee</h4>
+                        <input asp-for="CourseFeature.Fee" value="@Model.CourseFeature.Fee" style="width:100%" />
+                        <span asp-validation-for="CourseFeature.Fee" class="text text-danger"></span>
+                    </div>
+                    <button style="margin-top:20px" type="submit" class="btn btn-primary mr-2">Update</button>
+                    <a style="margin-top:20px" asp-action="Index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+		ClassicEditor
+			.create(document.querySelector('.ckeditor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector(".ckeditor2"))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector(".ckeditor3"))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector(".ckeditor4"))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+		$("#form").submit(function (e) {
+			if ($(".ckeditor1").val().trim() == "" || $(".ckeditor2").val().trim() == "") {
+                e.preventDefault();
+			}
+		})
+    </script>
+}
+
+

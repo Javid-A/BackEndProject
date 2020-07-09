@@ -96,7 +96,7 @@ using BackEndProject.ViewModels;
                     ");
             EndContext();
             BeginContext(913, 725, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f8c8b8a46f0649668006444030f89f47", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f517ef697a964d7999c2fd42addee69a", async() => {
                 BeginContext(931, 700, true);
                 WriteLiteral(@"
                         <ul>
