@@ -134,3 +134,12 @@ C:\Users\nijat\OneDrive\Рабочий стол\BackEndProject\BackEndProject\ob
 C:\Users\nijat\OneDrive\Рабочий стол\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.dll
 C:\Users\nijat\OneDrive\Рабочий стол\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.pdb
 C:\Users\nijat\OneDrive\Рабочий стол\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.csproj.CopyComplete
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\_ViewImports.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\_ViewStart.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Detail.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Delete.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Slider\Create.cshtml.g.cs

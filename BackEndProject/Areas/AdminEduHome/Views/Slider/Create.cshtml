@@ -1,0 +1,81 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 style="font-size:23px !important" class="card-title">Create Slide</h4>
+                <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                @if (ViewBag.SliderCount < 5)
+                {
+                    <form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <h4 style="margin-top:30px" class="card-title">Photo</h4>
+                            <input asp-for="Photo" class="photoInput form-control" accept="image/*">
+                            <span asp-validation-for="Photo" id="photoError" class="text-danger"></span>
+                            <h4 style="margin-top:30px" class="card-title">Title</h4>
+                            <input asp-for="Title" style="width:100%" />
+                            <h4 style="margin-top:30px" class="card-title">Description</h4>
+                            <textarea asp-for="Description" id="ckeditor"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Create</button>
+                        <a asp-action="Index" class="btn btn-light">Go Back</a>
+                    </form>
+                }
+                else
+                {
+                    <span class="alert alert-danger">You can create maximum 5 slide</span>
+                    <form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <h4 style="margin-top:30px" class="card-title">Photo</h4>
+                            <input asp-for="Photo" class="photoInput form-control" accept="image/*">
+                            <span asp-validation-for="Photo" id="photoError" class="text-danger"></span>
+                            <h4 style="margin-top:30px" class="card-title">Title</h4>
+                            <input asp-for="Title" style="width:100%" />
+                            <h4 style="margin-top:30px" class="card-title">Description</h4>
+                            <textarea asp-for="Description" id="ckeditor"></textarea>
+                        </div>
+                        <button style="pointer-events:none" type="submit" class="btn btn-outline-danger mr-2">Create</button>
+                        <a asp-action="Index" class="btn btn-light">Go Back</a>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#ckeditor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+		$("#form").submit(function (e) {
+            let accept=$(".photoInput").attr("accept");
+            let error = $("#photoError").text();
+            let text = $(".photoInput").val();
+            if (text != "" && error == "" && accept=="image/*") {
+                e.preventDefault();
+                swal({
+                    title: "Finish",
+                    text: "Slide has been succesfully created",
+                    icon: "success",
+                    button: "Done",
+				}).then(function () {
+                    setTimeout(() => { document.querySelector("#form").submit() }, 100)
+                })
+            }
+        })
+    </script>
+}
+

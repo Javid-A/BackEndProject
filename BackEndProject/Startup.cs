@@ -27,7 +27,7 @@ namespace BackEndProject
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
-			services.AddSession(options=>
+			services.AddSession(options =>
 			{
 				options.IdleTimeout = TimeSpan.FromMinutes(20);
 			});
@@ -59,14 +59,19 @@ namespace BackEndProject
 				app.UseDeveloperExceptionPage();
 			}
 			app.UseStaticFiles();
-			app.UseAuthentication();
 			app.UseSession();
+			app.UseAuthentication();
 			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "areas",
+					template: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+				);
 				routes.MapRoute(
 					"default",
 					"{controller=Home}/{action=Index}/{Id?}"
-					)
-			);
+				);
+			});
 		}
 	}
 }
