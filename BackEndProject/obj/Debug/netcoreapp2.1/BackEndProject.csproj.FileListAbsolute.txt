@@ -148,3 +148,13 @@ C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Edit.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Create.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Course\Delete.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Event\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Event\Detail.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Event\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Shared\_AdminEventSearchPartialView.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Event\Create.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Event\Delete.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Detail.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Create.cshtml.g.cs

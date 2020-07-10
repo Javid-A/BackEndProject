@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Speaker>
+
+@foreach (Speaker speaker in Model)
+{
+    <li style="cursor:pointer">
+        <p class="speakerP">@speaker.Fullname</p>
+    </li>
+}
+

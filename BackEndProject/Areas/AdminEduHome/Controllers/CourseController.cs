@@ -125,16 +125,12 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 				Description = course.Description
 			};
 			newCourse.ImagePath = await course.Photo.SaveImg(_env.WebRootPath, "img", "course");
-			
-			_db.Courses.Add(newCourse);
-			_db.SaveChanges();
-			Course createdCourse = _db.Courses.OrderByDescending(c => c.Id).FirstOrDefault();
 			CourseContent courseContent = new CourseContent
 			{
 				AboutCourse = course.CourseContent.AboutCourse,
 				HTA = course.CourseContent.HTA,
 				Certification = course.CourseContent.Certification,
-				CourseId = createdCourse.Id
+				CourseId = newCourse.Id
 			};
 			CourseFeature courseFeature = new CourseFeature
 			{
@@ -146,10 +142,11 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 				Students = course.CourseFeature.Students,
 				Assesments = course.CourseFeature.Assesments,
 				Fee = course.CourseFeature.Fee,
-				CourseId = createdCourse.Id
+				CourseId = newCourse.Id
 			};
-			await _db.CourseContents.AddAsync(courseContent);
-			await _db.CourseFeatures.AddAsync(courseFeature);
+			newCourse.CourseContent = courseContent;
+			newCourse.CourseFeature = courseFeature;
+			await _db.Courses.AddAsync(newCourse);
 			await _db.SaveChangesAsync();
 			return RedirectToAction("Index");
 		}

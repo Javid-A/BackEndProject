@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Blog List</h4>
+                <a asp-action="Create" class="btn btn-success">Create Blog</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Blog Title
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Blog blog in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/img/blog/@blog.ImagePath" style="width:200px !important;height:100px !important;border-radius:unset !important" alt="image" />
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <strong>@blog.Title</strong>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <a asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-success">
+                                            <i class="mdi mdi-account-card-details"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@blog.Id" class="btn btn-primary">
+                                            <i class="mdi mdi-table-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@blog.Id" class="btn btn-danger">
+                                            <i class="mdi mdi-delete-forever"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

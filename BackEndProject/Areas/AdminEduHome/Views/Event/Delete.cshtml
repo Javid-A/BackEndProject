@@ -1,0 +1,80 @@
+﻿@model Event
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<form id="form" method="post">
+	<div>
+		<h4>Event Image</h4>
+		<img src="~/img/event/@Model.ImagePath" width="450" alt="Alternate Text" />
+	</div>
+	<div style="margin-top:40px">
+		<h4>Event title</h4>
+		<p>@Model.Title</p>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Event description</h4>
+		<p>@Html.Raw(Model.Description)</p>
+	</div>
+	<div class="row justify-content-around" style="margin-top:40px">
+		<div>
+			<h4>Date event</h4>
+			<p>@Model.Date</p>
+		</div>
+		<div>
+			<h4>Time event</h4>
+			<p>@Model.Time</p>
+		</div>
+		<div>
+			<h4>Venue</h4>
+			<p>@Model.Venue</p>
+		</div>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Event speakers</h4>
+		@foreach (EventSpeaker eventSpeaker in Model.EventSpeakers)
+		{
+			<div class="row" style="margin-top:15px">
+				<div>
+					<img src="~/img/event/@eventSpeaker.Speaker.ImagePath" />
+				</div>
+				<div style="margin-left:10px;margin-top:15px">
+					<p>@eventSpeaker.Speaker.Fullname</p>
+					<p>@eventSpeaker.Speaker.Profession</p>
+				</div>
+			</div>
+		}
+	</div>
+	<button style="margin-top:20px" type="submit" class="btn btn-danger">Delete</button>
+</form>
+<div class="row" style="margin-top:20px">
+	<a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+@section Scripts{
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$("#form").submit(function (e) {
+			e.preventDefault();
+			swal({
+				title: "Are you sure?",
+				text: "Once deleted, you will not be able to recover this file!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+				.then((willDelete) => {
+					if (willDelete) {
+						swal("Event has been deleted!", {
+							icon: "success",
+						}).then(function () {
+							setTimeout(() => document.querySelector("#form").submit(), 100);
+						})
+					} else {
+						swal("Event was not deleted!");
+					}
+				});
+
+		})
+	</script>
+}
+

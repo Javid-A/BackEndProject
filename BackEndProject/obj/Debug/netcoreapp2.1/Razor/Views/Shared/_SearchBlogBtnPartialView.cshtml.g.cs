@@ -67,9 +67,9 @@ using BackEndProject.ViewModels;
             WriteLiteral("\t<div class=\"allBlog col-md-6 col-sm-6 col-xs-12\">\r\n\t\t<div class=\"single-blog mb-60\">\r\n\t\t\t<div class=\"blog-img\">\r\n\t\t\t\t");
             EndContext();
             BeginContext(178, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0e33c89d3c84898a4cb025a72c944f9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "223d5e10e8554cd8b2c210bc1018d1df", async() => {
                 BeginContext(225, 49, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d8821de986ce4223b1e2b45d29224c14", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b6317d76c58f442584ae7ee06f32dd0e", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -152,7 +152,7 @@ AddHtmlAttributeValue("", 246, blog.ImagePath, 246, 15, false);
             WriteLiteral("</p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"blog-bottom\">\r\n\t\t\t\t\t<h2>");
             EndContext();
             BeginContext(587, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1253952fdc44de6b0cf2212814b4555", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c2f9cba82824742a165bd10c697b670", async() => {
                 BeginContext(635, 10, false);
 #line 17 "C:\Users\nijat\source\repos\BackEndProject\BackEndProject\Views\Shared\_SearchBlogBtnPartialView.cshtml"
                                                                   Write(blog.Title);
@@ -191,7 +191,7 @@ AddHtmlAttributeValue("", 246, blog.ImagePath, 246, 15, false);
             WriteLiteral("</h2>\r\n\t\t\t\t\t");
             EndContext();
             BeginContext(661, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99ee2f2b4a164eec9ef317bda46c705e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9f51882952b749eeb51e0d82ec3ee9cd", async() => {
                 BeginContext(708, 9, true);
                 WriteLiteral("read more");
                 EndContext();

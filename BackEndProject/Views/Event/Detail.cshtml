@@ -38,7 +38,7 @@
 							<li><span>time : </span>@Model.Event.Time</li>
 							<li><span>venue : </span>@Model.Event.Venue</li>
 						</ul>
-						<p>@Model.Event.Description</p>
+						<p>@Html.Raw(Model.Event.Description)</p>
 						<div class="speakers-area fix">
 							<h4>speakers</h4>
 							@foreach (EventSpeaker eventSpeaker in Model.EventSpeakers)

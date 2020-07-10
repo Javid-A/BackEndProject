@@ -1,0 +1,57 @@
+﻿@model Blog
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<form id="form" method="post">
+	<div>
+		<h4>Blog Image</h4>
+		<img src="~/img/blog/@Model.ImagePath" width="450" alt="Alternate Text" />
+	</div>
+	<div class="row" style="margin-top:40px">
+		<div>
+			<h4>Date blog</h4>
+			<p>@Model.Date</p>
+		</div>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Blog title</h4>
+		<p>@Model.Title</p>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Blog description</h4>
+		<p>@Html.Raw(Model.Description)</p>
+	</div>
+	<button style="margin-top:20px" type="submit" class="btn btn-danger">Delete</button>
+</form>
+<div class="row" style="margin-top:20px">
+	<a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+@section Scripts{
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$("#form").submit(function (e) {
+			e.preventDefault();
+			swal({
+				title: "Are you sure?",
+				text: "Once deleted, you will not be able to recover this blog!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+				.then((willDelete) => {
+					if (willDelete) {
+						swal("Blog has been deleted!", {
+							icon: "success",
+						}).then(function () {
+							setTimeout(() => document.querySelector("#form").submit(), 100);
+						})
+					} else {
+						swal("Blog was not deleted!");
+					}
+				});
+
+		})
+	</script>
+}
+

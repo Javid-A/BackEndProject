@@ -33,7 +33,7 @@
                     <div class="blog-details-content">
                         <h2>@Model.Blog.Title</h2>
                         <h6>By @Model.Blog.AppUser.UserName  /  @Model.Blog.Date  /  <i class="fa fa-comments-o"></i> @Model.Blog.CommentCount</h6>
-                        <p>@Model.Blog.Description</p>
+                        <p>@Html.Raw(Model.Blog.Description)</p>
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12">
                         <div class="reply-area">

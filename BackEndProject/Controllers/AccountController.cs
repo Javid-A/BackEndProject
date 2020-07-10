@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BackEndProject.Helpers;
 using BackEndProject.Models;
 using BackEndProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -42,7 +43,7 @@ namespace BackEndProject.Controllers
                 }
                 return View(signup);
             }
-            await _userManager.AddToRoleAsync(user, "Member");
+            await _userManager.AddToRoleAsync(user, Helper.Roles.Member.ToString());
             if (signup.IsChecked == true)
             {
                 await _signInManager.SignInAsync(user, true);
@@ -99,17 +100,17 @@ namespace BackEndProject.Controllers
         }
         public async Task CreateRole()
         {
-            if(!await _roleManager.RoleExistsAsync("Admin"))
+            if(!await _roleManager.RoleExistsAsync(Helper.Roles.Admin.ToString()))
             {
-                await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                await _roleManager.CreateAsync(new IdentityRole(Helper.Roles.Admin.ToString()));
             }
-            if (!await _roleManager.RoleExistsAsync("Member"))
+            if (!await _roleManager.RoleExistsAsync(Helper.Roles.Member.ToString()))
             {
-                await _roleManager.CreateAsync(new IdentityRole("Member"));
+                await _roleManager.CreateAsync(new IdentityRole(Helper.Roles.Member.ToString()));
             }
-            if (!await _roleManager.RoleExistsAsync("Course Owner"))
+            if (!await _roleManager.RoleExistsAsync(Helper.Roles.CourseOwner.ToString()))
             {
-                await _roleManager.CreateAsync(new IdentityRole("Course Owner"));
+                await _roleManager.CreateAsync(new IdentityRole(Helper.Roles.CourseOwner.ToString()));
             }
         }
     }

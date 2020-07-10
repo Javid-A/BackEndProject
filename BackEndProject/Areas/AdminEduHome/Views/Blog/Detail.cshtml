@@ -1,0 +1,29 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<div>
+    <h4>Blog Image</h4>
+    <img src="~/img/blog/@Model.ImagePath" width="450" alt="Alternate Text" />
+</div>
+<div class="row" style="margin-top:40px">
+    <div>
+        <h4>Date blog</h4>
+        <p>@Model.Date</p>
+    </div>
+</div>
+<div style="margin-top:40px">
+    <h4>Blog title</h4>
+    <p>@Model.Title</p>
+</div>
+<div style="margin-top:40px">
+    <h4>Blog description</h4>
+    <p>@Html.Raw(Model.Description)</p>
+</div>
+<div class="row" style="margin-top:20px">
+    <a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+
+
