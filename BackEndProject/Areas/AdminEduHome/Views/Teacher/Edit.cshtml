@@ -1,0 +1,123 @@
+﻿@model Teacher
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 style="font-size:23px !important" class="card-title">Edit Teacher</h4>
+				<h4 class="card-title" style="margin-top:40px">Current Teacher Image</h4>
+				<div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+				<img src="~/img/teacher/@Model.ImagePath" width="450" alt="Alternate Text" />
+				<form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<h4 style="margin-top:30px" class="card-title">Photo</h4>
+						<input asp-for="Photo" class="form-control" accept="image/*">
+						<span asp-validation-for="Photo" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Fullname</h4>
+						<input asp-for="Fullname" value="@Model.Fullname" style="width:100%" />
+						<span asp-validation-for="Fullname" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Profession</h4>
+						<input asp-for="Profession" value="@Model.Profession" style="width:100%" />
+						<span asp-validation-for="Profession" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">About</h4>
+						<span asp-validation-for="About" class="text-danger">Required</span>
+						<textarea asp-for="About" class="ckeditor">@Model.About</textarea>
+
+						<h4 style="margin-top:30px" class="card-title">Degree</h4>
+						<input asp-for="Degree" value="@Model.Degree" style="width:100%" />
+						<span asp-validation-for="Degree" class="text-danger"></span>
+
+
+						<h4 style="margin-top:30px" class="card-title">Experience</h4>
+						<input asp-for="Experience" value="@Model.Experience" style="width:100%" />
+						<span asp-validation-for="Experience" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Hobbies</h4>
+						<input asp-for="Hobbies" value="@Model.Hobbies" style="width:100%" />
+						<span asp-validation-for="Hobbies" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Faculty</h4>
+						<input asp-for="Faculty" value="@Model.Faculty" style="width:100%" />
+						<span asp-validation-for="Faculty" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Email</h4>
+						<input asp-for="TeacherContact.Email" value="@Model.TeacherContact.Email" style="width:100%" />
+						<span asp-validation-for="TeacherContact.Email" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Phone</h4>
+						<input asp-for="TeacherContact.PhoneNumber" value="@Model.TeacherContact.PhoneNumber" style="width:100%" />
+						<span asp-validation-for="TeacherContact.PhoneNumber" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Skype</h4>
+						<input asp-for="TeacherContact.Skype" value="@Model.TeacherContact.Skype" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Facebook</h4>
+						<input asp-for="TeacherContact.Facebook" value="@Model.TeacherContact.Facebook" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Pinterest</h4>
+						<input asp-for="TeacherContact.Pinterest" value="@Model.TeacherContact.Pinterest" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Twitter</h4>
+						<input asp-for="TeacherContact.Twitter" value="@Model.TeacherContact.Twitter" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Language</h4>
+						<input asp-for="TeacherSkill.Language" min="0" max="100" value="@Model.TeacherSkill.Language" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Language" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Team leader</h4>
+						<input asp-for="TeacherSkill.TeamLeader" min="0" max="100" value="@Model.TeacherSkill.TeamLeader" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.TeamLeader" class="text-danger"></span>
+
+
+						<h4 style="margin-top:30px" class="card-title">Developmnet</h4>
+						<input asp-for="TeacherSkill.Development" min="0" max="100" value="@Model.TeacherSkill.Development" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Development" class="text-danger"></span>
+
+
+						<h4 style="margin-top:30px" class="card-title">Design</h4>
+						<input asp-for="TeacherSkill.Design" min="0" max="100" value="@Model.TeacherSkill.Design" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Design" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Innovation</h4>
+						<input asp-for="TeacherSkill.Innovation" min="0" max="100" value="@Model.TeacherSkill.Innovation" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Innovation" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Communication</h4>
+						<input asp-for="TeacherSkill.Communication" min="0" max="100" value="@Model.TeacherSkill.Communication" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Communication" class="text text-danger"></span>
+					</div>
+					<button style="margin-top:20px" type="submit" class="btn btn-primary mr-2">Update</button>
+					<a style="margin-top:20px" asp-action="Index" class="btn btn-light">Go Back</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+	<script>
+		ClassicEditor
+			.create(document.querySelector('.ckeditor'))
+			.catch(error => {
+				console.error(error);
+			});
+	</script>
+	<script>
+		$("#form").submit(function (e) {
+			if ($(".ckeditor").val().trim() == "") {
+				e.preventDefault();
+			}
+		})
+	</script>
+}
+

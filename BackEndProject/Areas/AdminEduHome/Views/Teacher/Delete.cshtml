@@ -1,0 +1,140 @@
+﻿@model Teacher
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<form id="form" method="post">
+	<div>
+		<h4>Teacher Image</h4>
+		<img src="~/img/teacher/@Model.ImagePath" width="450" alt="Alternate Text" />
+	</div>
+	<div style="margin-top:40px">
+		<h4>Teacher Fullname</h4>
+		<p>@Model.Fullname</p>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Teacher Profession</h4>
+		<p>@Model.Profession</p>
+	</div>
+	<div style="margin-top:40px">
+		<h4>About teacher</h4>
+		<p>@Html.Raw(Model.About)</p>
+	</div>
+	<div style="margin-top:40px">
+		<ul style="list-style-type:none">
+			<li style="margin-top:10px">
+				<strong>Degree:</strong>: @Model.Degree
+			</li>
+			<li style="margin-top:10px">
+				<strong>Experience:</strong> @Model.Experience
+			</li>
+			<li style="margin-top:10px">
+				<strong>Hobbies:</strong> @Model.Hobbies
+			</li>
+			<li style="margin-top:10px">
+				<strong>Faculty:</strong> @Model.Faculty
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-9 col-sm-8 mt-5">
+		<div class="skill-area">
+			<h4>skills</h4>
+		</div>
+		<div class="skill-wrapper">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="skill-bar-item">
+						<span>Language</span>
+						<div class="progress" style="height:13px;border-radius:12px">
+							<div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.TeacherSkill.Language%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+								<span class="text-top">@Model.TeacherSkill.Language%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="skill-bar-item">
+						<span>Team Leader</span>
+						<div class="progress" style="height:13px;border-radius:12px;">
+							<div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.TeacherSkill.TeamLeader%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+								<span class="text-top">@Model.TeacherSkill.TeamLeader%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="skill-bar-item">
+						<span>Development</span>
+						<div class="progress" style="height:13px;border-radius:12px">
+							<div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.TeacherSkill.Development%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+								<span class="text-top">@Model.TeacherSkill.Development%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 mt-3">
+					<div class="skill-bar-item">
+						<span>Design</span>
+						<div class="progress" style="height:13px;border-radius:12px">
+							<div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.TeacherSkill.Design%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+								<span class="text-top">@Model.TeacherSkill.Design%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 mt-3">
+					<div class="skill-bar-item">
+						<span>Innovation</span>
+						<div class="progress" style="height:13px;border-radius:12px">
+							<div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.TeacherSkill.Innovation%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+								<span class="text-top">@Model.TeacherSkill.Innovation%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 mt-3">
+					<div class="skill-bar-item">
+						<span>Communication</span>
+						<div class="progress" style="height:13px;border-radius:12px">
+							<div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.TeacherSkill.Communication%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+								<span class="text-top">@Model.TeacherSkill.Communication%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button class="btn btn-danger mt-3" type="submit">Delete</button>
+</form>
+<div class="row" style="margin-top:20px">
+	<a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+@section Scripts{
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$("#form").submit(function (e) {
+			e.preventDefault();
+			swal({
+				title: "Are you sure?",
+				text: "Once deleted, you will not be able to recover it!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+				.then((willDelete) => {
+					if (willDelete) {
+						swal("Teacher has been deleted!", {
+							icon: "success",
+						}).then(function () {
+							setTimeout(() => document.querySelector("#form").submit(), 100);
+						})
+					} else {
+						swal("Teacher was not deleted!");
+					}
+				});
+
+		})
+	</script>
+}
+

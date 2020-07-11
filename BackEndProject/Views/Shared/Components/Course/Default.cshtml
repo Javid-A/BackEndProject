@@ -1,6 +1,8 @@
-﻿@model IEnumerable<Course>
+﻿@using System.Text.RegularExpressions;
+@model IEnumerable<Course>
 @{
 	ViewData["Title"] = "Default";
+
 }
 
 @foreach (Course course in Model)
@@ -20,13 +22,13 @@
 				@if (course.CourseContent.AboutCourse.Length >= 130)
 				{
 					<p>
-						@Html.Raw(course.CourseContent.AboutCourse.Substring(0,130))
+						@Regex.Replace(course.CourseContent.AboutCourse, @"<[^>]*>", "").Substring(0, 130)...
 					</p>
 				}
 				else
 				{
 					<p>
-						@Html.Raw(course.CourseContent.AboutCourse)
+						@Regex.Replace(course.CourseContent.AboutCourse, @"<[^>]*>", "")
 					</p>
 				}
 				<a class="default-btn" asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">read more</a>

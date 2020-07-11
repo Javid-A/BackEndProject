@@ -1,0 +1,58 @@
+﻿@model IEnumerable<UserVM>
+@{
+	ViewData["Title"] = "UserList";
+}
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">User List</h4>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>
+									Username
+								</th>
+								<th>
+									Role
+								</th>
+								<th>
+									Settings
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (UserVM user in Model)
+							{
+								<tr>
+									<td>
+										<p>
+											<strong>@user.Username</strong>
+										</p>
+									</td>
+									<td>
+										<p>
+											<strong>@user.Role</strong>
+										</p>
+									</td>
+									<td>
+										<a asp-action="Edit" asp-route-username="@user.Username" class="btn btn-primary">
+											<i class="mdi mdi-table-edit"></i>
+										</a>
+										<a asp-action="Delete" asp-route-username="@user.Username" class="btn btn-danger">
+											<i class="mdi mdi-block-helper"></i>
+										</a>
+									</td>
+								</tr>
+							}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

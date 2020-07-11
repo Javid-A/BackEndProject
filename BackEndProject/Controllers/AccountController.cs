@@ -77,6 +77,11 @@ namespace BackEndProject.Controllers
                 ModelState.AddModelError("", "Username or password is not valid");
                 return View(login);
             }
+            if (logUser.IsDeleted == true)
+            {
+                ModelState.AddModelError("", "This account has been blocked");
+                return View();
+            }
             if (login.IsChecked == true){
                 Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(logUser, login.Password, true, true);
                 if (!signInResult.Succeeded)

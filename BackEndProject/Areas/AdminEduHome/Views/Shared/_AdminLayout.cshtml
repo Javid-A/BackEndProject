@@ -166,7 +166,7 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <nav class="sidebar sidebar-offcanvas"  id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
@@ -206,9 +206,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/admin/pages/icons/mdi.html">
+                        <a class="nav-link" asp-controller="Teacher" asp-action="Index">
                             <i class="mdi mdi-emoticon menu-icon"></i>
-                            <span class="menu-title">Icons</span>
+                            <span class="menu-title">Teachers</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -219,11 +219,9 @@
                         </a>
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login-2.html"> Login 2 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register-2.html"> Register 2 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/lock-screen.html"> Lockscreen </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="UserList"> User list </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="Register"> Register </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="BlockedList"> Blocked users </a></li>
                             </ul>
                         </div>
                     </li>

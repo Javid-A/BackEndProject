@@ -56,7 +56,7 @@
 			</li>
 		</ul>
 	</div>
-	<button type="submit" class="btn btn-danger">Delete</button>
+	<button type="submit" class="btn btn-danger mt-3">Delete</button>
 </form>
 <div class="row" style="margin-top:20px">
 	<a asp-action="Index" class="btn btn-dark">Go Back</a>
@@ -68,20 +68,20 @@
 			e.preventDefault();
 			swal({
 				title: "Are you sure?",
-				text: "Once deleted, you will not be able to recover this file!",
+				text: "Once deleted, you will not be able to recover it!",
 				icon: "warning",
 				buttons: true,
 				dangerMode: true,
 			})
 				.then((willDelete) => {
 					if (willDelete) {
-						swal("Your file has been deleted!", {
+						swal("Course has been deleted!", {
 							icon: "success",
 						}).then(function () {
 							setTimeout(() => document.querySelector("#form").submit(), 100);
 						})
 					} else {
-						swal("Your file was not deleted!");
+						swal("Course was not deleted!");
 					}
 				});
 

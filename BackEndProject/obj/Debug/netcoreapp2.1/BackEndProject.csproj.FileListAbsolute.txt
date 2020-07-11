@@ -45,7 +45,6 @@ C:\Users\nijat\source\repos\BackEndProject\BackEndProject\bin\Debug\netcoreapp2.
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\bin\Debug\netcoreapp2.1\BackEndProject.pdb
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\bin\Debug\netcoreapp2.1\BackEndProject.Views.dll
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\bin\Debug\netcoreapp2.1\BackEndProject.Views.pdb
-C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.csprojAssemblyReference.cache
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.RazorAssemblyInfo.cache
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.RazorAssemblyInfo.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.AssemblyInfoInputs.cache
@@ -158,3 +157,16 @@ C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Detail.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Edit.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Create.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Blog\Delete.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\BackEndProject.csprojAssemblyReference.cache
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Teacher\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Teacher\Detail.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Teacher\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Teacher\Add.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Teacher\Delete.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Account\Register.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Account\UserList.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Account\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Account\Delete.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Account\BlockedList.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Account\Unblock.cshtml.g.cs
