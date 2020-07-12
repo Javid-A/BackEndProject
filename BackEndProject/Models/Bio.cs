@@ -10,9 +10,7 @@ namespace BackEndProject.Models
 	{
 		[Required]
 		public int Id { get; set; }
-		[Required]
 		public string LogoPath { get; set; }
-		[Required]
 		public string AboutPath { get; set; }
 		[Required]
 		public string About { get; set; }

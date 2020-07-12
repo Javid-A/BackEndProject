@@ -28,8 +28,7 @@ namespace BackEndProject.Migrations
                     b.Property<string>("About")
                         .IsRequired();
 
-                    b.Property<string>("AboutPath")
-                        .IsRequired();
+                    b.Property<string>("AboutPath");
 
                     b.Property<string>("Address");
 
@@ -37,8 +36,7 @@ namespace BackEndProject.Migrations
 
                     b.Property<string>("Link");
 
-                    b.Property<string>("LogoPath")
-                        .IsRequired();
+                    b.Property<string>("LogoPath");
 
                     b.Property<string>("PhoneNumber");
 
