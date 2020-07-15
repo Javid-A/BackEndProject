@@ -1,0 +1,37 @@
+﻿@model Bio
+<div>
+	<h4>Logo</h4>
+	<img src="~/img/logo/@Model.LogoPath" width="150" alt="Alternate Text" />
+</div>
+<div style="margin-top:40px">
+	<h4>About Photo</h4>
+	<img src="~/img/about/@Model.AboutPath" width="300" alt="Alternate Text" />
+</div>
+<div style="margin-top:40px">
+	<h4>Video Link</h4>
+	<a href="@Model.Video" target="_blank">@Model.Video</a>
+</div>
+<div style="margin-top:40px">
+	<h4>About</h4>
+	<p>@Html.Raw(Model.About)</p>
+</div>
+<div style="margin-top:40px">
+	<h4>Phone Number</h4>
+	<p>@Model.PhoneNumber</p>
+</div>
+<div style="margin-top:40px">
+	<h4>Phone Number(2)</h4>
+	<p>@Model.PhoneNumber2</p>
+</div>
+<div style="margin-top:40px">
+	<h4>Email</h4>
+	<p>@Model.Email</p>
+</div>
+<div style="margin-top:40px">
+	<h4>Address</h4>
+	<p>@Model.Address</p>
+</div>
+<div style="margin-top:40px">
+	<h4>Link</h4>
+	<p>@Model.Link</p>
+</div>

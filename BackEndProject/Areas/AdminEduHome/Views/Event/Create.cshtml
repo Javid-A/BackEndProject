@@ -3,6 +3,10 @@
 	ViewData["Title"] = "Create";
 }
 
+@section Css{
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+}
+
 <div class="row">
 
 	<div class="col-md-12 grid-margin stretch-card">
@@ -38,19 +42,10 @@
 
 						<div class="mt-3">
 							<label style="font-size:15px;font-weight:bold">Select Speaker: </label>
-							<select name="speaker1" id="speaker1">
-								@foreach (Speaker speaker in Model.Speakers)
+							<select class="js-example-basic-multiple" id="selectSpeaker" name="states" multiple="multiple" style="width:100%">
+								@foreach (Speaker spiker in Model.Speakers)
 								{
-									<option value="@speaker.Id">@speaker.Fullname</option>
-								}
-							</select>
-						</div>
-						<div class="mt-3">
-							<label style="font-size:15px;font-weight:bold">Select Speaker: </label>
-							<select name="speaker2" id="speaker2">
-								@foreach (Speaker speaker in Model.Speakers)
-								{
-									<option value="@speaker.Id">@speaker.Fullname</option>
+									<option value="@spiker.Id">@spiker.Fullname</option>
 								}
 							</select>
 						</div>
@@ -66,6 +61,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script>
 		ClassicEditor
@@ -75,8 +71,14 @@
 			});
 	</script>
 	<script>
+
+		$(document).ready(function () {
+			$('.js-example-basic-multiple').select2();
+		});
+	</script>
+	<script>
 		$("#form").submit(function (e) {
-			if ($(".ckeditor").val().trim() == "") {
+			if ($(".ckeditor").val().trim() == "" || $("#selectSpeaker").val().length == 0) {
 				e.preventDefault();
 			} else {
 				let accept = $(".photoInput").attr("accept");
@@ -96,26 +98,26 @@
 			}
 		})
 	</script>
-	
-	@*<script>
-		$(".speaker").keyup(function () {
-			let search = $(this).val();
-			let _this = $(this);
-			$(this).next(".searchUL").find("li").remove();
-			if (search.length > 0 && search.trim() != "") {
-				$.ajax({
-					url: "/AdminEduHome/Event/SearchSpeaker?search=" + search,
-					type: "Get",
-					success: function (res) {
-						_this.next(".searchUL").append(res);
-						$(".speakerP").click(function () {
-							_this.val($(this).text())
-						})
-					}
-				})
-			}
-		})
 
-	</script>*@
+	@*<script>
+			$(".speaker").keyup(function () {
+				let search = $(this).val();
+				let _this = $(this);
+				$(this).next(".searchUL").find("li").remove();
+				if (search.length > 0 && search.trim() != "") {
+					$.ajax({
+						url: "/AdminEduHome/Event/SearchSpeaker?search=" + search,
+						type: "Get",
+						success: function (res) {
+							_this.next(".searchUL").append(res);
+							$(".speakerP").click(function () {
+								_this.val($(this).text())
+							})
+						}
+					})
+				}
+			})
+
+		</script>*@
 }
 

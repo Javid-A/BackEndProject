@@ -78,6 +78,24 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 				ModelState.AddModelError("", "You can't change current image with same image name");
 				return View(model);
 			}
+			List<EventSpeaker> eventSpeakers1 = new List<EventSpeaker>();
+			string spikers = Request.Form["states"];
+			string[] arr = spikers.Split(",");
+			List<int> ids = new List<int>();
+			foreach (string spikerId in arr)
+			{
+
+				ids.Add(Int32.Parse(spikerId));
+			}
+
+			foreach (int sId in ids)
+			{
+				eventSpeakers1.Add(new EventSpeaker
+				{
+					EventId = _event.Id,
+					SpeakerId = sId
+				});
+			}
 			Helpers.Helper.DeleteImg(_env.WebRootPath, "img", "event", _event.ImagePath);
 			_event.ImagePath = await editedEvent.Photo.SaveImg(_env.WebRootPath, "img", "event");
 			_event.Title = editedEvent.Title;
@@ -85,6 +103,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			_event.Date = editedEvent.Date;
 			_event.Time = editedEvent.Time;
 			_event.Venue = editedEvent.Venue;
+			_event.EventSpeakers = eventSpeakers1;
 			await _db.SaveChangesAsync();
 			return RedirectToAction("Index");
 		}
@@ -124,20 +143,23 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			};
 			newEvent.ImagePath = await _event.Photo.SaveImg(_env.WebRootPath, "img", "event");
 			List<EventSpeaker> eventSpeakers = new List<EventSpeaker>();
-			var speaker1 = Request.Form["speaker1"];
-			Speaker selectedS1 = _db.Speakers.FirstOrDefault(s => s.Id.ToString() == speaker1.ToString());
-			var speaker2 = Request.Form["speaker2"];
-			Speaker selectedS2 = _db.Speakers.FirstOrDefault(s => s.Id.ToString() == speaker2.ToString());
-			eventSpeakers.Add(new EventSpeaker
+			string spikers = Request.Form["states"];
+			string[] arr = spikers.Split(",");
+			List<int> ids = new List<int>();
+			foreach (string spikerId in arr)
 			{
-				EventId = newEvent.Id,
-				SpeakerId = selectedS1.Id
-			});
-			eventSpeakers.Add(new EventSpeaker
+
+				ids.Add(Int32.Parse(spikerId));
+			}
+
+			foreach (int id in ids)
 			{
-				EventId = newEvent.Id,
-				SpeakerId = selectedS2.Id
-			});
+				eventSpeakers.Add(new EventSpeaker
+				{
+					EventId = newEvent.Id,
+					SpeakerId = id
+				});
+			}
 			newEvent.EventSpeakers = eventSpeakers;
 			await _db.Events.AddAsync(newEvent);
 			await _db.SaveChangesAsync();

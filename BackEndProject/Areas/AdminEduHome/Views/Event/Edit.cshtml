@@ -3,6 +3,10 @@
 	ViewData["Title"] = "Edit";
 }
 
+@section Css{ 
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+}
+
 <div class="row">
 
 	<div class="col-md-12 grid-margin stretch-card">
@@ -24,7 +28,7 @@
 
 						<h4 style="margin-top:30px" class="card-title">Description</h4>
 						<span asp-validation-for="Description" class="text-danger">Required</span>
-						<textarea asp-for="Description" class="ckeditor">@Model.Event.Description</textarea>
+						<textarea asp-for="Event.Description" class="ckeditor">@Model.Event.Description</textarea>
 
 						<h4 style="margin-top:30px" class="card-title">Date</h4>
 						<input asp-for="Date" value="@Model.Event.Date" style="width:100%" />
@@ -38,13 +42,37 @@
 						<input asp-for="Venue" value="@Model.Event.Venue" style="width:100%" />
 						<span asp-validation-for="Venue" class="text-danger"></span>
 
-						@foreach (EventSpeaker eventSpeaker in Model.EventSpeakers)
-						{
-							<h4 style="margin-top:30px" class="card-title">Speaker</h4>
-							<input disabled asp-for="Speaker.Fullname" class="speaker" value="@eventSpeaker.Speaker.Fullname" style="width:100%" />
-							<ul class="searchUL" style="background-color:whitesmoke;position:absolute; list-style-type:none; width:20%">
-							</ul>
-						}
+						<div class="mt-3">
+							<label style="font-size:15px;font-weight:bold">Select Speaker: </label>
+							<select class="js-example-basic-multiple" id="selectSpeaker" name="states" multiple="multiple" style="width:100%">
+								@foreach (Speaker speaker in Model.Speakers)
+								{
+									@*foreach (EventSpeaker eventSpeaker in Model.EventSpeakers)
+										{
+											if (eventSpeaker.SpeakerId == speaker.Id)
+											{
+												<option selected value="@speaker.Id">@speaker.Fullname</option>
+												break;
+											}
+											else
+											{
+												<option value="@speaker.Id">@speaker.Fullname</option>
+
+											}
+										}*@
+									if (Model.EventSpeakers.FirstOrDefault(e => e.SpeakerId == speaker.Id) != null)
+									{
+										<option selected value="@speaker.Id">@speaker.Fullname</option>
+
+									}
+									else
+									{
+										<option value="@speaker.Id">@speaker.Fullname</option>
+
+									}
+								}
+							</select>
+						</div>
 					</div>
 					<button style="margin-top:20px" type="submit" class="btn btn-primary mr-2">Update</button>
 					<a style="margin-top:20px" asp-action="Index" class="btn btn-light">Go Back</a>
@@ -56,6 +84,7 @@
 @section Scripts{
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
 	<script>
 		ClassicEditor
@@ -66,30 +95,35 @@
 	</script>
 	<script>
 		$("#form").submit(function (e) {
-			if ($(".ckeditor").val().trim() == "") {
+			if ($(".ckeditor").val().trim() == "" || $("#selectSpeaker").val().length == 0) {
 				e.preventDefault();
 			}
 		})
 	</script>
+	<script>
+		$(document).ready(function () {
+			$('.js-example-basic-multiple').select2();
+		});
+	</script>
 	@*<script>
-		$(".speaker").keyup(function () {
-			let search = $(this).val();
-			let _this = $(this);
-			$(this).next(".searchUL").find("li").remove();
-			if (search.length > 0 && search.trim() != "") {
-				$.ajax({
-					url: "/AdminEduHome/Event/SearchSpeaker?search=" + search,
-					type: "Get",
-					success: function (res) {
-						_this.next(".searchUL").append(res);
-						$(".speakerP").click(function () {
-							_this.val($(this).text())
-						})
-					}
-				})
-			}
-		})
+			$(".speaker").keyup(function () {
+				let search = $(this).val();
+				let _this = $(this);
+				$(this).next(".searchUL").find("li").remove();
+				if (search.length > 0 && search.trim() != "") {
+					$.ajax({
+						url: "/AdminEduHome/Event/SearchSpeaker?search=" + search,
+						type: "Get",
+						success: function (res) {
+							_this.next(".searchUL").append(res);
+							$(".speakerP").click(function () {
+								_this.val($(this).text())
+							})
+						}
+					})
+				}
+			})
 
-	</script>*@
+		</script>*@
 }
 

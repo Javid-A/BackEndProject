@@ -1,0 +1,26 @@
+﻿@model Testimonial
+@{
+	ViewData["Title"] = "Index";
+}
+
+<div>
+	<div class="row justify-content-between">
+		<div>
+			<h4>Photo</h4>
+			<img src="~/img/testimonial/@Model.StudentImage" width="100" alt="Alternate Text" />
+		</div>
+		<a asp-controller="Testimonial" asp-action="Edit" asp-route-id="@Model.Id" style="height:40px" class="btn btn-behance">Edit</a>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Fullname</h4>
+		<p>@Model.StudentFullname</p>
+	</div>
+	<div style="margin-top:40px">
+		<h4>Degree</h4>
+		<p>@Model.Degree</p>
+	</div>
+	<div style="margin-top:40px">
+		<h4>About</h4>
+		<p>@Html.Raw(Model.AboutStudent)</p>
+	</div>
+</div>

@@ -14,9 +14,11 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 	public class AccountController : Controller
 	{
 		private readonly UserManager<AppUser> _userManager;
-		public AccountController(UserManager<AppUser> userManager)
+		private readonly SignInManager<AppUser> _signInManager;
+		public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
 		{
 			_userManager = userManager;
+			_signInManager = signInManager;
 		}
 
 		public async Task<IActionResult> UserList()
@@ -153,6 +155,11 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			var role = Request.Form["roles"];
 			await _userManager.AddToRoleAsync(user, role);
 			return RedirectToAction("UserList");
+		}
+		public async Task<IActionResult> LogOut()
+		{
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Home", new { area = "" });
 		}
 	}
 }

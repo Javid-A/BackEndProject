@@ -3,70 +3,65 @@
 	ViewData["Title"] = "Index";
 }
 
-<div>
-	<div class="row justify-content-between">
-		<div>
-			<h4>Logo</h4>
-			<img src="~/img/logo/@Model.LogoPath" width="150" alt="Alternate Text" />
-		</div>
-		<!-- Button trigger modal -->
-		<button type="button" id="editBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-			Edit
-		</button>
+@section Css{
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+}
+<div style="display:flex;justify-content:flex-end">
+	<!-- Button trigger modal -->
+	<button type="button" id="editBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+		Edit
+	</button>
 
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form method="post" id="form">
-							<h4 style="margin-top:30px" class="card-title">Logo</h4>
-							<input type="file" id="logo" name="inputLogo" class="form-control" accept="image/*">
-							<span class="text-danger"></span>
-
-							<h4 style="margin-top:30px" class="card-title">About Photo</h4>
-							<input type="file" id="about" name="inputAbout" class="form-control" accept="image/*">
-							<span class="text-danger"></span>
-
-							<h4 style="margin-top:30px" class="card-title">About</h4>
-							<textarea asp-for="About" style="width:100%;height:100px">@Model.About</textarea>
-							<span asp-validation-for="About" class="text text-danger"></span>
-
-							<h4 style="margin-top:30px" class="card-title">Video</h4>
-							<input asp-for="Video" value="@Model.Video" style="width:100%" />
-							<span asp-validation-for="Video" id="videoError" class="text text-danger"></span>
-
-
-							<h4 style="margin-top:30px" class="card-title">Phone Number</h4>
-							<input asp-for="PhoneNumber" value="@Model.PhoneNumber" style="width:100%" />
-
-							<h4 style="margin-top:30px" class="card-title">Phone Number(2)</h4>
-							<input asp-for="PhoneNumber2" value="@Model.PhoneNumber2" style="width:100%" />
-
-							<h4 style="margin-top:30px" class="card-title">Address</h4>
-							<input asp-for="Address" value="@Model.Address" style="width:100%" />
-
-							<h4 style="margin-top:30px" class="card-title">Email</h4>
-							<input asp-for="Email" value="@Model.Email" style="width:100%" />
-
-							<h4 style="margin-top:30px" class="card-title">Link</h4>
-							<input asp-for="Link" value="@Model.Link" style="width:100%" />
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="submit" id="saveChanges" class="btn btn-primary">Save changes</button>
-							</div>
-						</form>
-					</div>
-
+	<!-- Modal -->
+	<div class="modal" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
+				<div class="modal-body">
+					<form action="/AdminEduHome/Bio/SaveChanges" method="post" id="form" enctype="multipart/form-data">
+						<h4 style="margin-top:30px" class="card-title">About</h4>
+						<textarea asp-for="About" class="aboutText form-control" style="width:100%;height:100px">@Model.About </textarea>
+						<span asp-validation-for="About" id="aboutError" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Video</h4>
+						<input asp-for="Video" value="@Model.Video" class="form-control" style="width:100%" />
+						<span asp-validation-for="Video" id="videoError" class="text text-danger"></span>
+
+
+						<h4 style="margin-top:30px" class="card-title">Phone Number</h4>
+						<input asp-for="PhoneNumber" value="@Model.PhoneNumber" class="form-control" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Phone Number(2)</h4>
+						<input asp-for="PhoneNumber2" value="@Model.PhoneNumber2" class="form-control" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Address</h4>
+						<input asp-for="Address" value="@Model.Address" class="form-control" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Email</h4>
+						<input asp-for="Email" value="@Model.Email" class="form-control" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Link</h4>
+						<input asp-for="Link" value="@Model.Link" class="form-control" style="width:100%" />
+						<div class="modal-footer">
+							<button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" id="saveChanges" class="btn btn-primary">Save changes</button>
+						</div>
+					</form>
+				</div>
+
 			</div>
 		</div>
+	</div>
+</div>
+<div id="parentAllBio">
+	<div>
+		<h4>Logo</h4>
+		<img src="~/img/logo/@Model.LogoPath" width="150" alt="Alternate Text" />
 	</div>
 	<div style="margin-top:40px">
 		<h4>About Photo</h4>
@@ -105,42 +100,54 @@
 @section Scripts{
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
-	@*<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	<script>
-		ClassicEditor
-			.create(document.querySelector('.ckeditor'))
-			.catch(error => {
-				console.error(error);
-			});
-	</script>*@
-	<script>
-		let logo = document.getElementById("logo")
-		let about = document.getElementById("about")
-		let logoPath = "";
-		let aboutPath = "";
-		logo.onchange = function (e) {
-			logoPath = e.target.files[0].name;
-		}
-		about.onchange = function (e) {
-			aboutPath = e.target.files[0].name;
-		}
 		$("#saveChanges").click(function (e) {
 			$("#form").submit(function (e) {
 				e.preventDefault();
 			})
 			let text = $("#Video").val();
-			let aboutText = $("#About").val();
+			let aboutText = $(".aboutText").val();
+			let errorAbout = $("#aboutError").text()
 			let error = $("#videoError").text();
-			if (error == "" && text.trim() != "" && aboutText.trim() != "" ) {
+			let phone = $("#PhoneNumber").val();
+			let phone2 = $("#PhoneNumber2").val();
+			let address = $("#Address").val();
+			let email = $("#Email").val();
+			let link = $("#Link").val();
+			var data = [aboutText, text, phone, phone2, address, email, link];
+			if (error == "" && text.trim() != "" && errorAbout.trim() == "" && aboutText.trim() != "") {
+				$("#cancel").click();
 				$.ajax({
 					url: "/AdminEduHome/Bio/SaveChanges",
-					data: { 'logoPath': logoPath, 'aboutPath': aboutPath },
-					type: "Get",
+					data: { 'data': data },
+					type: "Post",
 					success: function (res) {
-						console.log(res)
+						$("#parentAllBio").empty();
+						$("#parentAllBio").append(res);
+						Command: toastr["success"]("Bio has been succesfully edited")
+
+						toastr.options = {
+							"closeButton": true,
+							"debug": false,
+							"newestOnTop": false,
+							"progressBar": true,
+							"positionClass": "toast-top-right",
+							"preventDuplicates": false,
+							"onclick": null,
+							"showDuration": "300",
+							"hideDuration": "500",
+							"timeOut": "5000",
+							"extendedTimeOut": "1000",
+							"showEasing": "swing",
+							"hideEasing": "linear",
+							"showMethod": "fadeIn",
+							"hideMethod": "fadeOut"
+						}
 					}
 				})
 			}
 		})
+
 	</script>
 }
