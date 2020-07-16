@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BackEndProject.DAL;
 using BackEndProject.Extentions;
 using BackEndProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,8 +14,9 @@ using Microsoft.EntityFrameworkCore;
 namespace BackEndProject.Areas.AdminEduHome.Controllers
 {
     [Area("AdminEduHome")]
+    [Authorize(Roles = "Admin")]
     public class BlogController : Controller
-    {
+	{
         private readonly AppDbContext _db;
 		private readonly UserManager<AppUser> _userManager;
         private readonly IHostingEnvironment _env;

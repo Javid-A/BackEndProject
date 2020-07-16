@@ -15,7 +15,7 @@
 	<!-- End plugin css for this page -->
 	<!-- inject:css -->
 	<link rel="stylesheet" href="~/admin/css/style.css">
-	@RenderSection("Css",required:false)
+	@RenderSection("Css", required: false)
 	<!-- endinject -->
 	<link rel="shortcut icon" href="~/admin/images/favicon.png" />
 </head>
@@ -25,8 +25,8 @@
 		<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 			<div class="navbar-brand-wrapper d-flex justify-content-center">
 				<div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-					<a class="navbar-brand brand-logo" href="~/admin/index.html"><img src="~/admin/images/logo.svg" alt="logo" /></a>
-					<a class="navbar-brand brand-logo-mini" href="~/admin/index.html"><img src="~/admin/images/logo-mini.svg" alt="logo" /></a>
+					<a class="navbar-brand brand-logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo/logo2.png" alt="logo" /></a>
+					<a class="navbar-brand brand-logo-mini" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo/logo2.png" alt="logo" /></a>
 					<button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
 						<span class="mdi mdi-sort-variant"></span>
 					</button>
@@ -147,7 +147,7 @@
 							<span class="nav-profile-name">@User.Identity.Name</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-							<a class="dropdown-item" asp-controller="Account" asp-action="LogOut">
+							<a class="dropdown-item" asp-area="AdminEduHome" asp-controller="Account" asp-action="LogOut">
 								<i class="mdi mdi-logout text-primary"></i>
 								Logout
 							</a>
@@ -162,79 +162,169 @@
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_sidebar.html -->
-			<nav class="sidebar sidebar-offcanvas" id="sidebar">
-				<ul class="nav">
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Dashboard" asp-action="Index">
-							<i class="mdi mdi-home menu-icon"></i>
-							<span class="menu-title">Dashboard</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-							<i class="mdi mdi-circle-outline menu-icon"></i>
-							<span class="menu-title">Sliders</span>
-							<i class="menu-arrow"></i>
-						</a>
-						<div class="collapse" id="ui-basic">
-							<ul class="nav flex-column sub-menu">
-								<li class="nav-item"> <a class="nav-link" asp-controller="Slider" asp-action="Index">Slider List</a></li>
-								<li class="nav-item"> <a class="nav-link" asp-controller="Slider" asp-action="Create">Create Slider</a></li>
-							</ul>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Course" asp-action="Index">
-							<i class="mdi mdi-view-headline menu-icon"></i>
-							<span class="menu-title">Courses</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Event" asp-action="Index">
-							<i class="mdi mdi-chart-pie menu-icon"></i>
-							<span class="menu-title">Events</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Blog" asp-action="Index">
-							<i class="mdi mdi-grid-large menu-icon"></i>
-							<span class="menu-title">Blogs</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Teacher" asp-action="Index">
-							<i class="mdi mdi-emoticon menu-icon"></i>
-							<span class="menu-title">Teachers</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-							<i class="mdi mdi-account menu-icon"></i>
-							<span class="menu-title">User Pages</span>
-							<i class="menu-arrow"></i>
-						</a>
-						<div class="collapse" id="auth">
-							<ul class="nav flex-column sub-menu">
-								<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="UserList"> User list </a></li>
-								<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="Register"> Register </a></li>
-								<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="BlockedList"> Blocked users </a></li>
-							</ul>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Bio" asp-action="Index">
-							<i class="mdi mdi-file-document-box-outline menu-icon"></i>
-							<span class="menu-title">Bio</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" asp-controller="Testimonial" asp-action="Index">
-							<i class="mdi mdi-file-document-box-outline menu-icon"></i>
-							<span class="menu-title">Testimonial</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
+			@if (User.IsInRole(BackEndProject.Helpers.Helper.Roles.Admin.ToString()))
+			{
+				<nav class="sidebar sidebar-offcanvas" id="sidebar">
+					<ul class="nav">
+						<li class="d-none nav-item">
+							<a>
+
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+								<i class="mdi mdi-home menu-icon"></i>
+								<span class="menu-title">Dashboard</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+								<i class="mdi mdi-circle-outline menu-icon"></i>
+								<span class="menu-title">Sliders</span>
+								<i class="menu-arrow"></i>
+							</a>
+							<div class="collapse" id="ui-basic">
+								<ul class="nav flex-column sub-menu">
+									<li class="nav-item"> <a class="nav-link" asp-controller="Slider" asp-action="Index">Slider List</a></li>
+									<li class="nav-item"> <a class="nav-link" asp-controller="Slider" asp-action="Create">Create Slider</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Course" asp-action="Index">
+								<i class="mdi mdi-view-headline menu-icon"></i>
+								<span class="menu-title">Courses</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Event" asp-action="Index">
+								<i class="mdi mdi-chart-pie menu-icon"></i>
+								<span class="menu-title">Events</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Blog" asp-action="Index">
+								<i class="mdi mdi-grid-large menu-icon"></i>
+								<span class="menu-title">Blogs</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Teacher" asp-action="Index">
+								<i class="mdi mdi-emoticon menu-icon"></i>
+								<span class="menu-title">Teachers</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+								<i class="mdi mdi-account menu-icon"></i>
+								<span class="menu-title">User Pages</span>
+								<i class="menu-arrow"></i>
+							</a>
+							<div class="collapse" id="auth">
+								<ul class="nav flex-column sub-menu">
+									<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="UserList"> User list </a></li>
+									<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="Register"> Register </a></li>
+									<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="BlockedList"> Blocked users </a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Bio" asp-action="Index">
+								<i class="mdi mdi-file-document-box-outline menu-icon"></i>
+								<span class="menu-title">Bio</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Testimonial" asp-action="Index">
+								<i class="mdi mdi-file-document-box-outline menu-icon"></i>
+								<span class="menu-title">Testimonial</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			}
+			else
+			{
+				<nav style="pointer-events:none;opacity:.2" class="sidebar sidebar-offcanvas" id="sidebar">
+					<ul class="nav">
+						<li class="d-none nav-item">
+							<a>
+
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+								<i class="mdi mdi-home menu-icon"></i>
+								<span class="menu-title">Dashboard</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+								<i class="mdi mdi-circle-outline menu-icon"></i>
+								<span class="menu-title">Sliders</span>
+								<i class="menu-arrow"></i>
+							</a>
+							<div class="collapse" id="ui-basic">
+								<ul class="nav flex-column sub-menu">
+									<li class="nav-item"> <a class="nav-link" asp-controller="Slider" asp-action="Index">Slider List</a></li>
+									<li class="nav-item"> <a class="nav-link" asp-controller="Slider" asp-action="Create">Create Slider</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Course" asp-action="Index">
+								<i class="mdi mdi-view-headline menu-icon"></i>
+								<span class="menu-title">Courses</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Event" asp-action="Index">
+								<i class="mdi mdi-chart-pie menu-icon"></i>
+								<span class="menu-title">Events</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Blog" asp-action="Index">
+								<i class="mdi mdi-grid-large menu-icon"></i>
+								<span class="menu-title">Blogs</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Teacher" asp-action="Index">
+								<i class="mdi mdi-emoticon menu-icon"></i>
+								<span class="menu-title">Teachers</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+								<i class="mdi mdi-account menu-icon"></i>
+								<span class="menu-title">User Pages</span>
+								<i class="menu-arrow"></i>
+							</a>
+							<div class="collapse" id="auth">
+								<ul class="nav flex-column sub-menu">
+									<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="UserList"> User list </a></li>
+									<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="Register"> Register </a></li>
+									<li class="nav-item"> <a class="nav-link" asp-controller="Account" asp-action="BlockedList"> Blocked users </a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Bio" asp-action="Index">
+								<i class="mdi mdi-file-document-box-outline menu-icon"></i>
+								<span class="menu-title">Bio</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Testimonial" asp-action="Index">
+								<i class="mdi mdi-file-document-box-outline menu-icon"></i>
+								<span class="menu-title">Testimonial</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			}
+
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">

@@ -28,7 +28,8 @@ namespace BackEndProject.Migrations
                     b.Property<string>("About")
                         .IsRequired();
 
-                    b.Property<string>("AboutPath");
+                    b.Property<string>("AboutPath")
+                        .IsRequired();
 
                     b.Property<string>("Address");
 
@@ -36,7 +37,8 @@ namespace BackEndProject.Migrations
 
                     b.Property<string>("Link");
 
-                    b.Property<string>("LogoPath");
+                    b.Property<string>("LogoPath")
+                        .IsRequired();
 
                     b.Property<string>("PhoneNumber");
 
@@ -85,6 +87,8 @@ namespace BackEndProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AppUserId");
+
                     b.Property<string>("Description")
                         .IsRequired();
 
@@ -95,6 +99,8 @@ namespace BackEndProject.Migrations
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Courses");
                 });
@@ -582,6 +588,13 @@ namespace BackEndProject.Migrations
                 {
                     b.HasOne("BackEndProject.Models.AppUser", "AppUser")
                         .WithMany("Blogs")
+                        .HasForeignKey("AppUserId");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Course", b =>
+                {
+                    b.HasOne("BackEndProject.Models.AppUser", "AppUser")
+                        .WithMany("Courses")
                         .HasForeignKey("AppUserId");
                 });
 

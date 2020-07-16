@@ -6,6 +6,7 @@ using BackEndProject.DAL;
 using BackEndProject.Extentions;
 using BackEndProject.Models;
 using BackEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BackEndProject.Areas.AdminEduHome.Controllers
 {
 	[Area("AdminEduHome")]
+	[Authorize(Roles = "Admin")]
 	public class EventController : Controller
 	{
 		private readonly AppDbContext _db;

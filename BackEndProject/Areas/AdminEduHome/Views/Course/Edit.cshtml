@@ -18,6 +18,9 @@
                         <input asp-for="Photo" class="form-control" accept="image/*">
                         <span asp-validation-for="Photo" class="text-danger"></span>
 
+                        <h4 style="margin-top:30px" class="card-title">Owner</h4>
+                        <input disabled asp-for="AppUserId" value="@Model.AppUserId" style="width:100%" />
+
                         <h4 style="margin-top:30px" class="card-title">Name</h4>
                         <input asp-for="Name" value="@Model.Name" style="width:100%" />
                         <span asp-validation-for="Name" class="text-danger"></span>

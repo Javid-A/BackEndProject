@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BackEndProject.DAL;
 using BackEndProject.Models;
 using BackEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			_signInManager = signInManager;
 		}
 
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> UserList()
 		{
 			List<AppUser> allUsers = _userManager.Users.ToList();
@@ -40,6 +42,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			}
 			return View(usersVM);
 		}
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Edit(string username)
 		{
 			if (username == null) return NotFound();
@@ -53,6 +56,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			};
 			return View(userVM);
 		}
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ActionName("Edit")]
@@ -65,6 +69,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			await _userManager.AddToRoleAsync(appUser, role);
 			return RedirectToAction("UserList");
 		}
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Delete(string username)
 		{
 			if (username == null) return NotFound();
@@ -77,7 +82,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			};
 			return View(userVM);
 		}
-
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ActionName("Delete")]
@@ -89,6 +94,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			return RedirectToAction("UserList");
 		}
 
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> BlockedList()
 		{
 			List<AppUser> allUsers = _userManager.Users.ToList();
@@ -108,6 +114,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			}
 			return View(usersVM);
 		}
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Unblock(string username)
 		{
 			if (username == null) return NotFound();
@@ -120,6 +127,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			};
 			return View(userVM);
 		}
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ActionName("Unblock")]
@@ -130,10 +138,12 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			await _userManager.UpdateAsync(user);
 			return RedirectToAction("UserList");
 		}
+		[Authorize(Roles = "Admin")]
 		public IActionResult Register()
 		{
 			return View();
 		}
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Register(RegisterVM register)
@@ -156,6 +166,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			await _userManager.AddToRoleAsync(user, role);
 			return RedirectToAction("UserList");
 		}
+		[Authorize(Policy = "CourseManager")]
 		public async Task<IActionResult> LogOut()
 		{
 			await _signInManager.SignOutAsync();

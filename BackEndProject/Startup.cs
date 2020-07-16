@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,6 +47,13 @@ namespace BackEndProject
 			 }
 			).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+			services.AddAuthorization(options =>
+			{
+				options.AddPolicy("CourseManager", policy => policy.RequireAssertion(context =>
+					   context.User.IsInRole(Helpers.Helper.Roles.Admin.ToString()) || context.User.IsInRole(Helpers.Helper.Roles.CourseOwner.ToString())
+				 ));
+			});
+			
 			services.AddDbContext<AppDbContext>(options =>
 				options.UseSqlServer(_config["ConnectionStrings:DefaultConnection"])
 			);
@@ -58,6 +66,11 @@ namespace BackEndProject
 			{
 				app.UseDeveloperExceptionPage();
 			}
+			//else
+			//{
+			//	app.UseExceptionHandler("/Home/Error");
+			//	app.UseHsts();
+			//}
 			app.UseStaticFiles();
 			app.UseSession();
 			app.UseAuthentication();

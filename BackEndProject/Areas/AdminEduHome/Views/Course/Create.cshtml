@@ -16,6 +16,16 @@
 						<input asp-for="Photo" class="photoInput form-control" accept="image/*">
 						<span asp-validation-for="Photo" id="photoError" class="text-danger"></span>
 
+						<div class="mt-2 form-group">
+							<label>Course owner</label>
+							<select class="form-control form-control-lg" name="courseOwner">
+								@foreach (AppUser owner in ViewBag.CourseOwners)
+								{
+									<option value="@owner.Id">@owner.UserName</option>
+								}
+							</select>
+						</div>
+
 						<h4 style="margin-top:30px" class="card-title">Name</h4>
 						<input asp-for="Name" style="width:100%" />
 						<span asp-validation-for="Name" class="text-danger"></span>
@@ -118,7 +128,7 @@
 					e.preventDefault();
 					swal({
 						title: "Finish",
-						text: "Slide has been succesfully created",
+						text: "Course has been succesfully created",
 						icon: "success",
 						button: "Done",
 					}).then(function () {

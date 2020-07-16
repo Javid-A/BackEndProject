@@ -5,41 +5,93 @@ using System.Threading.Tasks;
 using BackEndProject.DAL;
 using BackEndProject.Extentions;
 using BackEndProject.Models;
+using BackEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackEndProject.Areas.AdminEduHome.Controllers
 {
-    [Area("AdminEduHome")]
-    public class CourseController : Controller
-    {
-        private readonly AppDbContext _db;
+	[Area("AdminEduHome")]
+	public class CourseController : Controller
+	{
+		private readonly AppDbContext _db;
 		private readonly IHostingEnvironment _env;
-        public CourseController(AppDbContext db,IHostingEnvironment env)
-        {
-            _db = db;
+		private readonly UserManager<AppUser> _userManager;
+		public CourseController(AppDbContext db, IHostingEnvironment env, UserManager<AppUser> userManager)
+		{
+			_db = db;
 			_env = env;
-        }
-        public IActionResult Index()
-        {
-            return View(_db.Courses);
-        }
-        public async Task<IActionResult> Detail(int? id)
-        {
-            if (id == null) return NotFound();
-            Course course = await _db.Courses.Include(c=>c.CourseContent).Include(c=>c.CourseFeature).FirstOrDefaultAsync(c=>c.Id==id);
-            if (course == null) return NotFound();
-            return View(course);
-        }
+			_userManager = userManager;
+		}
+		[Authorize(Policy = "CourseManager")]
+		public async Task<IActionResult> Index()
+		{
+			AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+			CourseVM model = new CourseVM
+			{
+				OwnerCourses = _db.Courses.Where(c => c.AppUserId == user.Id).ToList(),
+				Courses = _db.Courses.ToList()
+			};
+			return View(model);
+		}
+		[Authorize(Policy = "CourseManager")]
+		public async Task<IActionResult> Detail(int? id)
+		{
+			AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+			if (User.IsInRole(Helpers.Helper.Roles.Admin.ToString()))
+			{
+				if (id == null) return NotFound();
+				Course course = await _db.Courses.Include(c => c.CourseContent).Include(c => c.CourseFeature).FirstOrDefaultAsync(c => c.Id == id);
+				if (course == null) return NotFound();
+				return View(course);
+			}
+			else
+			{
+				if (id == null) return NotFound();
+				List<Course> courses =_db.Courses.Include(c => c.CourseContent).Include(c => c.CourseFeature).Where(c => c.AppUserId == user.Id).ToList();
+				Course ownerCourse = courses.FirstOrDefault(c => c.Id == id);
+				if (ownerCourse == null || ownerCourse.Id != id)
+				{
+					return RedirectToAction("AccessDenied", "Account", new { area = "" });
+				}
+				else{
+					return View(ownerCourse);
+				}
 
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null) return NotFound();
-            Course course = await _db.Courses.Include(c => c.CourseContent).Include(c => c.CourseFeature).FirstOrDefaultAsync(c => c.Id == id);
-            if (course == null) return NotFound();
-            return View(course);
-        }
+			}
+		}
+
+		[Authorize(Policy = "CourseManager")]
+		public async Task<IActionResult> Edit(int? id)
+		{
+			AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+			if (User.IsInRole(Helpers.Helper.Roles.Admin.ToString()))
+			{
+				if (id == null) return NotFound();
+				Course course = await _db.Courses.Include(c => c.CourseContent).Include(c => c.CourseFeature).FirstOrDefaultAsync(c => c.Id == id);
+				if (course == null) return NotFound();
+				return View(course);
+			}
+			else
+			{
+				if (id == null) return NotFound();
+				List<Course> courses = _db.Courses.Include(c => c.CourseContent).Include(c => c.CourseFeature).Where(c => c.AppUserId == user.Id).ToList();
+				Course ownerCourse = courses.FirstOrDefault(c => c.Id == id);
+				if (ownerCourse == null || ownerCourse.Id != id)
+				{
+					return RedirectToAction("AccessDenied", "Account", new { area = "" });
+				}
+				else
+				{
+					return View(ownerCourse);
+				}
+
+			}
+		}
+		[Authorize(Policy = "CourseManager")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Edit(int? id, Course editedCourse)
@@ -67,7 +119,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 					ModelState.AddModelError("", "You can't change current image with same image name");
 					return View(course);
 				}
-				if (editedCourse.CourseFeature.Fee.ToString()=="0")
+				if (editedCourse.CourseFeature.Fee.ToString() == "0")
 				{
 					ModelState.AddModelError("", "Make sure course fee is correct");
 					return View(course);
@@ -92,10 +144,13 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			}
 
 		}
-		public IActionResult Create()
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Create()
 		{
+			ViewBag.CourseOwners = await _userManager.GetUsersInRoleAsync(Helpers.Helper.Roles.CourseOwner.ToString());
 			return View();
 		}
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Create(Course course)
@@ -119,10 +174,12 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 				ModelState.AddModelError("", "Make sure course fee is correct");
 				return View(course);
 			}
+			string ownerId = Request.Form["courseOwner"];
 			Course newCourse = new Course
 			{
 				Name = course.Name,
-				Description = course.Description
+				Description = course.Description,
+				AppUserId = ownerId
 			};
 			newCourse.ImagePath = await course.Photo.SaveImg(_env.WebRootPath, "img", "course");
 			CourseContent courseContent = new CourseContent
@@ -151,6 +208,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			return RedirectToAction("Index");
 		}
 
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Delete(int? id)
 		{
 			if (id == null) return NotFound();
@@ -158,6 +216,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 			if (course == null) return NotFound();
 			return View(course);
 		}
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ActionName("Delete")]

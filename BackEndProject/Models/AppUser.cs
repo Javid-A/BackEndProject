@@ -11,5 +11,6 @@ namespace BackEndProject.Models
 	{
 		public bool IsDeleted { get; set; } = false;
 		public ICollection<Blog> Blogs { get; set; }
+		public ICollection<Course> Courses { get; set; }
 	}
 }

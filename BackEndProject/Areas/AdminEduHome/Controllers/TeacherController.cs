@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BackEndProject.DAL;
 using BackEndProject.Extentions;
 using BackEndProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BackEndProject.Areas.AdminEduHome.Controllers
 {
     [Area("AdminEduHome")]
+	[Authorize(Roles = "Admin")]
     public class TeacherController : Controller
     {
         private readonly AppDbContext _db;

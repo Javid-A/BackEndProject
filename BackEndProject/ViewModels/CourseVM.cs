@@ -10,6 +10,9 @@ namespace BackEndProject.ViewModels
 	public class CourseVM
 	{
 		public Course Course { get; set; }
+		public IEnumerable<Course> Courses { get; set; }
+		public Course OwnerCourse { get; set; }
+		public IEnumerable<Course> OwnerCourses { get; set; }
 		public Blog BestTheme { get; set; }
 		public IEnumerable<Blog> LatestPosts { get; set; }
 		public string Name { get; set; }

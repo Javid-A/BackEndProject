@@ -19,6 +19,8 @@ namespace BackEndProject.Models
 		public string Description { get; set; }
 		public virtual CourseContent CourseContent { get; set; }
 		public virtual CourseFeature CourseFeature { get; set; }
+		public string AppUserId { get; set; }
+		public AppUser AppUser { get; set; }
 		[NotMapped]
 		[Required]
 		public IFormFile Photo { get; set; }

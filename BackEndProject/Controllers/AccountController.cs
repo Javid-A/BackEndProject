@@ -103,6 +103,10 @@ namespace BackEndProject.Controllers
             }
             
         }
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
         public async Task CreateRole()
         {
             if(!await _roleManager.RoleExistsAsync(Helper.Roles.Admin.ToString()))

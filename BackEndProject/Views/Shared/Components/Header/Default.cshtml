@@ -27,6 +27,10 @@
 								{
 									<li><a asp-area="AdminEduHome" asp-controller="Dashboard" asp-action="Index">Admin Panel</a></li>
 								}
+								@if (User.IsInRole(BackEndProject.Helpers.Helper.Roles.CourseOwner.ToString()))
+								{
+									<li><a asp-area="AdminEduHome" asp-controller="Course" asp-action="Index">Your courses</a></li>
+								}
 								<li><a asp-controller="Account" asp-action="LogOut">Logout</a></li>
 							}
 						</ul>
