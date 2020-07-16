@@ -176,3 +176,8 @@ C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Testimonial\Edit.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Error.cshtml.g.cs
 C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Speaker\Index.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Speaker\Detail.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Speaker\Edit.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Speaker\Create.cshtml.g.cs
+C:\Users\nijat\source\repos\BackEndProject\BackEndProject\obj\Debug\netcoreapp2.1\Razor\Areas\AdminEduHome\Views\Speaker\Delete.cshtml.g.cs

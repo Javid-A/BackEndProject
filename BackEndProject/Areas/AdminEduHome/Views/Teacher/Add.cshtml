@@ -1,138 +1,148 @@
 ﻿@model Teacher
 @{
-    ViewData["Title"] = "Add";
+	ViewData["Title"] = "Add";
 }
 
 <div class="row">
 
-    <div class="col-md-12 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 style="font-size:23px !important" class="card-title">Add Teacher</h4>
-                <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
-                <form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <h4 style="margin-top:30px" class="card-title">Photo</h4>
-                        <input asp-for="Photo" class="photoInput form-control" accept="image/*">
-                        <span asp-validation-for="Photo" id="photoError" class="text-danger"></span>
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 style="font-size:23px !important" class="card-title">Add Teacher</h4>
+				<div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+				<form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<h4 style="margin-top:30px" class="card-title">Photo</h4>
+						<input asp-for="Photo" class="photoInput form-control" accept="image/*">
+						<span asp-validation-for="Photo" id="photoError" class="text-danger"></span>
 
-                        <h4 style="margin-top:30px" class="card-title">Fullname</h4>
-                        <input asp-for="Fullname" style="width:100%" />
-                        <span asp-validation-for="Fullname" class="text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Fullname</h4>
+						<input asp-for="Fullname" style="width:100%" />
+						<span asp-validation-for="Fullname" class="text-danger"></span>
 
-                        <h4 style="margin-top:30px" class="card-title">Profession</h4>
-                        <input asp-for="Profession" style="width:100%" />
-                        <span asp-validation-for="Profession" class="text text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Profession</h4>
+						<input asp-for="Profession" style="width:100%" />
+						<span asp-validation-for="Profession" class="text text-danger"></span>
 
-                        <h4 style="margin-top:30px" class="card-title">About</h4>
-                        <span asp-validation-for="About" class="text-danger">Required</span>
-                        <textarea asp-for="About" class="ckeditor"></textarea>
+						<h4 style="margin-top:30px" class="card-title">About</h4>
+						<span asp-validation-for="About" class="text-danger">Required</span>
+						<textarea asp-for="About" class="ckeditor"></textarea>
 
-                        <h4 style="margin-top:30px" class="card-title">Degree</h4>
-                        <input asp-for="Degree" style="width:100%" />
-                        <span asp-validation-for="Degree" class="text-danger"></span>
-
-
-                        <h4 style="margin-top:30px" class="card-title">Experience</h4>
-                        <input asp-for="Experience" style="width:100%" />
-                        <span asp-validation-for="Experience" class="text-danger"></span>
-
-                        <h4 style="margin-top:30px" class="card-title">Hobbies</h4>
-                        <input asp-for="Hobbies" style="width:100%" />
-                        <span asp-validation-for="Hobbies" class="text-danger"></span>
-
-                        <h4 style="margin-top:30px" class="card-title">Faculty</h4>
-                        <input asp-for="Faculty" style="width:100%" />
-                        <span asp-validation-for="Faculty" class="text-danger"></span>
-
-                        <h4 style="margin-top:30px" class="card-title">Email</h4>
-                        <input asp-for="TeacherContact.Email" style="width:100%" />
-                        <span asp-validation-for="TeacherContact.Email" class="text text-danger"></span>
-
-                        <h4 style="margin-top:30px" class="card-title">Phone</h4>
-                        <input asp-for="TeacherContact.PhoneNumber" style="width:100%" />
-                        <span asp-validation-for="TeacherContact.PhoneNumber" class="text text-danger"></span>
-
-                        <h4 style="margin-top:30px" class="card-title">Skype</h4>
-                        <input asp-for="TeacherContact.Skype" style="width:100%" />
-
-                        <h4 style="margin-top:30px" class="card-title">Facebook</h4>
-                        <input asp-for="TeacherContact.Facebook" style="width:100%" />
-
-                        <h4 style="margin-top:30px" class="card-title">Pinterest</h4>
-                        <input asp-for="TeacherContact.Pinterest" style="width:100%" />
-
-                        <h4 style="margin-top:30px" class="card-title">Twitter</h4>
-                        <input asp-for="TeacherContact.Twitter" style="width:100%" />
-
-                        <h4 style="margin-top:30px" class="card-title">Language</h4>
-                        <input asp-for="TeacherSkill.Language" min="0" max="100" style="width:100%" />
-                        <span asp-validation-for="TeacherSkill.Language" class="text-danger"></span>
-
-                        <h4 style="margin-top:30px" class="card-title">Team leader</h4>
-                        <input asp-for="TeacherSkill.TeamLeader" min="0" max="100" style="width:100%" />
-                        <span asp-validation-for="TeacherSkill.TeamLeader" class="text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Degree</h4>
+						<input asp-for="Degree" style="width:100%" />
+						<span asp-validation-for="Degree" class="text-danger"></span>
 
 
-                        <h4 style="margin-top:30px" class="card-title">Developmnet</h4>
-                        <input asp-for="TeacherSkill.Development" min="0" max="100" style="width:100%" />
-                        <span asp-validation-for="TeacherSkill.Development" class="text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Experience</h4>
+						<input asp-for="Experience" style="width:100%" />
+						<span asp-validation-for="Experience" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Hobbies</h4>
+						<input asp-for="Hobbies" style="width:100%" />
+						<span asp-validation-for="Hobbies" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Faculty</h4>
+						<input asp-for="Faculty" style="width:100%" />
+						<span asp-validation-for="Faculty" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Email</h4>
+						<input asp-for="TeacherContact.Email" class="email form-control" style="width:100%" />
+						<span asp-validation-for="TeacherContact.Email" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Phone</h4>
+						<input asp-for="TeacherContact.PhoneNumber" class="phonenumber form-control" style="width:100%" />
+						<span asp-validation-for="TeacherContact.PhoneNumber" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Skype</h4>
+						<input asp-for="TeacherContact.Skype" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Facebook</h4>
+						<input asp-for="TeacherContact.Facebook" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Pinterest</h4>
+						<input asp-for="TeacherContact.Pinterest" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Twitter</h4>
+						<input asp-for="TeacherContact.Twitter" style="width:100%" />
+
+						<h4 style="margin-top:30px" class="card-title">Language</h4>
+						<input asp-for="TeacherSkill.Language" class="language form-control" min="0" max="100" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Language" class="text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Team leader</h4>
+						<input asp-for="TeacherSkill.TeamLeader" class="teamleader form-control" min="0" max="100" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.TeamLeader" class="text-danger"></span>
 
 
-                        <h4 style="margin-top:30px" class="card-title">Design</h4>
-                        <input asp-for="TeacherSkill.Design" min="0" max="100" style="width:100%" />
-                        <span asp-validation-for="TeacherSkill.Design" class="text text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Developmnet</h4>
+						<input asp-for="TeacherSkill.Development" class="development form-control" min="0" max="100" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Development" class="text-danger"></span>
 
-                        <h4 style="margin-top:30px" class="card-title">Innovation</h4>
-                        <input asp-for="TeacherSkill.Innovation" min="0" max="100" style="width:100%" />
-                        <span asp-validation-for="TeacherSkill.Innovation" class="text text-danger"></span>
 
-                        <h4 style="margin-top:30px" class="card-title">Communication</h4>
-                        <input asp-for="TeacherSkill.Communication" min="0" max="100" style="width:100%" />
-                        <span asp-validation-for="TeacherSkill.Communication" class="text text-danger"></span>
-                    </div>
-                    <button style="margin-top:20px" type="submit" class="btn btn-primary mr-2">Add</button>
-                    <a style="margin-top:20px" asp-action="Index" class="btn btn-light">Go Back</a>
-                </form>
-            </div>
-        </div>
-    </div>
+						<h4 style="margin-top:30px" class="card-title">Design</h4>
+						<input asp-for="TeacherSkill.Design" class="design form-control" min="0" max="100" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Design" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Innovation</h4>
+						<input asp-for="TeacherSkill.Innovation" class="innovation form-control" min="0" max="100" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Innovation" class="text text-danger"></span>
+
+						<h4 style="margin-top:30px" class="card-title">Communication</h4>
+						<input asp-for="TeacherSkill.Communication" class="communication form-control" min="0" max="100" style="width:100%" />
+						<span asp-validation-for="TeacherSkill.Communication" class="text text-danger"></span>
+					</div>
+					<button style="margin-top:20px" type="submit" class="btn btn-primary mr-2">Add</button>
+					<a style="margin-top:20px" asp-action="Index" class="btn btn-light">Go Back</a>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
 @section Scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('.ckeditor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-    <script>
-        $("#form").submit(function (e) {
-            if ($(".ckeditor").val().trim() == "") {
-                e.preventDefault();
-            } else {
-                let accept = $(".photoInput").attr("accept");
-                let error = $("#photoError").text();
-                let text = $(".photoInput").val();
-                if (text != "" && error == "" && accept == "image/*") {
-                    e.preventDefault();
-                    swal({
-                        title: "Finish",
-                        text: "Teacher has been succesfully created",
-                        icon: "success",
-                        button: "Done",
-                    }).then(function () {
-                        setTimeout(() => { document.querySelector("#form").submit() }, 100)
-                    })
-                }
-            }
-        })
-    </script>
+	<script>
+		ClassicEditor
+			.create(document.querySelector('.ckeditor'))
+			.catch(error => {
+				console.error(error);
+			});
+	</script>
+	<script>
+		$("#form").submit(function (e) {
+			if ($(".ckeditor").val().trim() == "") {
+				e.preventDefault();
+			} else {
+				let accept = $(".photoInput").attr("accept");
+				let error = $("#photoError").text();
+				let text = $(".photoInput").val();
+				let fullname = $("#Fullname").val()
+				let profession = $("#Profession").val()
+				let email = $(".email").val()
+				let phonenumber = $(".phonenumber").val()
+				let language = $(".language").val()
+				let teamleader = $(".teamleader").val()
+				let development = $(".development").val()
+				let design = $(".design").val()
+				let innovation = $(".innovation").val()
+				let communication = $(".communication").val()
+				if (text != "" && error == "" && accept == "image/*" && fullname.trim() != "" && profession.trim() != "" && email.trim() != "" && phonenumber.trim() != "" && language.trim() != "" && teamleader.trim() != "" && development.trim() != "" && design.trim() != "" && innovation.trim() != "" && communication.trim() != "") {
+					e.preventDefault();
+					swal({
+						title: "Finish",
+						text: "Teacher has been succesfully created",
+						icon: "success",
+						button: "Done",
+					}).then(function () {
+						setTimeout(() => { document.querySelector("#form").submit() }, 100)
+					})
+				}
+			}
+		})
+	</script>
 }
 
 

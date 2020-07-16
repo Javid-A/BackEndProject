@@ -49,7 +49,9 @@
 	</script>
 	<script>
 		$("#form").submit(function (e) {
-			if ($(".ckeditor").val().trim() == "") {
+			let date = $("#Date").val()
+			let title = $("#Title").val()
+			if ($(".ckeditor").val().trim() == "" || title.trim() == "" || date.trim() == "") {
 				e.preventDefault();
 			} else {
 				let accept = $(".photoInput").attr("accept");

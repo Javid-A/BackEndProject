@@ -47,19 +47,6 @@
 							<select class="js-example-basic-multiple" id="selectSpeaker" name="states" multiple="multiple" style="width:100%">
 								@foreach (Speaker speaker in Model.Speakers)
 								{
-									@*foreach (EventSpeaker eventSpeaker in Model.EventSpeakers)
-										{
-											if (eventSpeaker.SpeakerId == speaker.Id)
-											{
-												<option selected value="@speaker.Id">@speaker.Fullname</option>
-												break;
-											}
-											else
-											{
-												<option value="@speaker.Id">@speaker.Fullname</option>
-
-											}
-										}*@
 									if (Model.EventSpeakers.FirstOrDefault(e => e.SpeakerId == speaker.Id) != null)
 									{
 										<option selected value="@speaker.Id">@speaker.Fullname</option>

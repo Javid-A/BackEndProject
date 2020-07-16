@@ -1,0 +1,21 @@
+﻿@model Speaker
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div>
+    <h4>Speaker Photo</h4>
+    <img src="~/img/event/@Model.ImagePath" style="width:100px" alt="Alternate Text" />
+</div>
+<div style="margin-top:30px">
+    <h4>Fullname</h4>
+    <p>@Model.Fullname</p>
+</div>
+<div style="margin-top:30px">
+    <h4>Profession</h4>
+    <p>@Model.Profession</p>
+</div>
+<div class="row" style="margin-top:20px">
+    <a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+

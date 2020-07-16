@@ -78,7 +78,12 @@
 	</script>
 	<script>
 		$("#form").submit(function (e) {
-			if ($(".ckeditor").val().trim() == "" || $("#selectSpeaker").val().length == 0) {
+			let title = $("#Title").val()
+			let description = $("#Description").val()
+			let date = $("#Date").val()
+			let time = $("#Time").val()
+			let venue = $("#Venue").val()
+			if ($(".ckeditor").val().trim() == "" || $("#selectSpeaker").val().length == 0 || title.trim() == "" || description.trim() == "" || date.trim() == "" || time.trim() == "" || venue.trim() == "") {
 				e.preventDefault();
 			} else {
 				let accept = $(".photoInput").attr("accept");

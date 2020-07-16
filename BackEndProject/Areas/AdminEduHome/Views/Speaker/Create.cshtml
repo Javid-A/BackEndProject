@@ -1,0 +1,55 @@
+﻿@model Speaker
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="row">
+	<div class="col-md-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<h4 style="font-size:23px !important" class="card-title">Create Speaker</h4>
+				<div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+				<form id="form" class="forms-sample" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<h4 style="margin-top:30px" class="card-title">Photo</h4>
+						<input asp-for="Photo" class="photoInput form-control" accept="image/*">
+						<span asp-validation-for="Photo" id="photoError" class="text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Title</h4>
+						<input asp-for="Fullname" class="form-control" style="width:100%" />
+						<span asp-validation-for="Fullname" class="text-danger"></span>
+						<h4 style="margin-top:30px" class="card-title">Description</h4>
+						<input asp-for="Profession" class="form-control" />
+						<span asp-validation-for="Profession" class="text-danger"></span>
+					</div>
+					<button type="submit" class="btn btn-primary mr-2">Add</button>
+					<a asp-action="Index" class="btn btn-light">Go Back</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$("#form").submit(function (e) {
+			let accept = $(".photoInput").attr("accept");
+			let error = $("#photoError").text();
+			let text = $(".photoInput").val();
+			let fullname = $("#Fullname").val()
+			let profession = $("#Profession").val()
+			if (text != "" && error == "" && accept == "image/*" && fullname.trim() != "" && profession.trim() !="") {
+				e.preventDefault();
+				swal({
+					title: "Finish",
+					text: "Speaker has been succesfully created",
+					icon: "success",
+					button: "Done",
+				}).then(function () {
+					setTimeout(() => { document.querySelector("#form").submit() }, 100)
+				})
+			}
+		})
+	</script>
+}

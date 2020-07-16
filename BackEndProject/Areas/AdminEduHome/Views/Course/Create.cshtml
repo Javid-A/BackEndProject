@@ -27,7 +27,7 @@
 						</div>
 
 						<h4 style="margin-top:30px" class="card-title">Name</h4>
-						<input asp-for="Name" style="width:100%" />
+						<input asp-for="Name" class="Name form-control" style="width:100%" />
 						<span asp-validation-for="Name" class="text-danger"></span>
 
 						<h4 style="margin-top:30px" class="card-title">Description</h4>
@@ -45,24 +45,24 @@
 						<textarea asp-for="CourseContent.Certification" class="ckeditor4"></textarea>
 
 						<h4 style="margin-top:30px" class="card-title">Starts</h4>
-						<input asp-for="CourseFeature.Starts" style="width:100%" />
+						<input asp-for="CourseFeature.Starts" class="Starts form-control" style="width:100%" />
 						<span asp-validation-for="CourseFeature.Starts" class="text-danger"></span>
 
 
 						<h4 style="margin-top:30px" class="card-title">Duration</h4>
-						<input asp-for="CourseFeature.Duration" style="width:100%" />
+						<input asp-for="CourseFeature.Duration" class="Duration form-control" style="width:100%" />
 						<span asp-validation-for="CourseFeature.Duration" class="text-danger"></span>
 
 						<h4 style="margin-top:30px" class="card-title">Class duration</h4>
-						<input asp-for="CourseFeature.ClassDuration" style="width:100%" />
+						<input asp-for="CourseFeature.ClassDuration" class="ClassDuration form-control" style="width:100%" />
 						<span asp-validation-for="CourseFeature.ClassDuration" class="text-danger"></span>
 
 						<h4 style="margin-top:30px" class="card-title">SKill level</h4>
-						<input asp-for="CourseFeature.SkillLevel" style="width:100%" />
+						<input asp-for="CourseFeature.SkillLevel" class="SkillLevel form-control" style="width:100%" />
 						<span asp-validation-for="CourseFeature.SkillLevel" class="text-danger"></span>
 
 						<h4 style="margin-top:30px" class="card-title">Language</h4>
-						<input asp-for="CourseFeature.Langugage" style="width:100%" />
+						<input asp-for="CourseFeature.Langugage" class="Language form-control" style="width:100%" />
 						<span asp-validation-for="CourseFeature.Langugage" class="text-danger"></span>
 
 						<h4 style="margin-top:30px" class="card-title">Students</h4>
@@ -72,7 +72,7 @@
 						<input asp-for="CourseFeature.Assesments" style="width:100%" />
 
 						<h4 style="margin-top:30px" class="card-title">Fee</h4>
-						<input asp-for="CourseFeature.Fee" class="fee" style="width:100%" />
+						<input asp-for="CourseFeature.Fee" class="fee form-control" style="width:100%" />
 						<span asp-validation-for="CourseFeature.Fee" class="text text-danger"></span>
 					</div>
 					<button style="margin-top:20px" type="submit" class="btn btn-primary mr-2">Create</button>
@@ -117,7 +117,13 @@
 	</script>
 	<script>
 		$("#form").submit(function (e) {
-			if ($(".ckeditor1").val().trim() == "" || $(".ckeditor2").val().trim() == "") {
+			let name = $(".Name").val()
+			let starts = $(".Starts").val()
+			let duration = $(".Duration").val()
+			let classDuration = $(".ClassDuration").val()
+			let skillLevel = $(".SkillLevel").val()
+			let language = $(".Language").val()
+			if ($(".ckeditor1").val().trim() == "" || $(".ckeditor2").val().trim() == "" || name.trim() == "" || starts.trim() == "" || duration.trim() == "" || classDuration.trim() == "" || language.trim() == "" || skillLevel.trim() == "") {
 				e.preventDefault();
 			} else {
 				let accept = $(".photoInput").attr("accept");

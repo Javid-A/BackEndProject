@@ -69,7 +69,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("\r\n<div>\r\n    <h4>Teacher Image</h4>\r\n    ");
             EndContext();
             BeginContext(99, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fa52b99dc46041fc89043035bcf8efe0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0fee9a05c282460c807a5794839cbc93", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -405,7 +405,7 @@ WriteAttributeValue(" ", 4903, Model.TeacherSkill.Communication, 4904, 33, false
             WriteLiteral("%</span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"row\" style=\"margin-top:20px\">\r\n    ");
             EndContext();
             BeginContext(5378, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13b57a9b16db4961bb60e895af0f78f6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4713f45dc4e4451cb4a38abb90f3f10c", async() => {
                 BeginContext(5421, 7, true);
                 WriteLiteral("Go Back");
                 EndContext();

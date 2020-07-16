@@ -155,6 +155,7 @@ namespace BackEndProject.Areas.AdminEduHome.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Create(Course course)
 		{
+			ViewBag.CourseOwners = await _userManager.GetUsersInRoleAsync(Helpers.Helper.Roles.CourseOwner.ToString());
 			if (course.Photo == null)
 			{
 				return View();

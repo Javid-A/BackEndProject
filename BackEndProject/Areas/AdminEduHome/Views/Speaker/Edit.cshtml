@@ -1,0 +1,38 @@
+﻿@model Speaker
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 style="font-size:23px !important" class="card-title">Edit Speaker</h4>
+                <h4 class="card-title" style="margin-top:40px">Current Speaker Photo</h4>
+                <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                <img src="~/img/event/@Model.ImagePath" width="100" alt="Alternate Text" />
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <h4 style="margin-top:30px" class="card-title">Photo</h4>
+                        <input asp-for="Photo" class="form-control" accept="image/*">
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                        <h4 style="margin-top:30px" class="card-title">Title</h4>
+                        <input asp-for="Fullname" class="form-control" value="@Model.Fullname" style="width:100%" />
+                        <span asp-validation-for="Fullname" class="text-danger"></span>
+                        <h4 style="margin-top:30px" class="card-title">Description</h4>
+                        <input asp-for="Profession" value="@Model.Profession" class="form-control" />
+                        <span asp-validation-for="Profession" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <a asp-action="Index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}
+

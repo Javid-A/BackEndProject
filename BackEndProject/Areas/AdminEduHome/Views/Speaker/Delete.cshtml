@@ -1,0 +1,49 @@
+﻿@model Speaker
+@{
+	ViewData["Title"] = "Delete";
+}
+<form id="form" method="post">
+	<div>
+		<h4>Speaker Photo</h4>
+		<img src="~/img/event/@Model.ImagePath" style="width:100px" alt="Alternate Text" />
+	</div>
+	<div style="margin-top:30px">
+		<h4>Fullname</h4>
+		<p>@Model.Fullname</p>
+	</div>
+	<div style="margin-top:30px">
+		<h4>Profession</h4>
+		<p>@Model.Profession</p>
+	</div>
+	<button type="submit" class="mt-2 btn btn-danger">Delete</button>
+</form>
+<div class="row" style="margin-top:20px">
+	<a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+@section Scripts{
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$("#form").submit(function (e) {
+			e.preventDefault();
+			swal({
+				title: "Are you sure?",
+				text: "Once deleted, you will not be able to recover this speaker!",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+			})
+				.then((willDelete) => {
+					if (willDelete) {
+						swal("Speaker has been deleted!", {
+							icon: "success",
+						}).then(function () {
+							setTimeout(() => document.querySelector("#form").submit(), 100);
+						})
+					} else {
+						swal("Speaker was not deleted!");
+					}
+				});
+		})
+	</script>
+}
+
