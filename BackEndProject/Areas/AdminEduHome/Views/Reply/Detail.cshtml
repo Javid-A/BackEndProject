@@ -1,0 +1,25 @@
+﻿@model Reply
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div>
+    <h4>Name</h4>
+    <p>@Model.Name</p>
+</div>
+<div style="margin-top:30px">
+    <h4>Email</h4>
+    <p>@Model.Email</p>
+</div>
+<div style="margin-top:30px">
+    <h4>Subject</h4>
+    <p>@Model.Subject</p>
+</div>
+<div style="margin-top:30px">
+    <h4>Message</h4>
+    <p>@Model.Message</p>
+</div>
+<div class="row" style="margin-top:20px">
+    <a asp-action="Index" class="btn btn-dark">Go Back</a>
+</div>
+

@@ -70,12 +70,12 @@ using BackEndProject.ViewModels;
 #line default
 #line hidden
             BeginContext(55, 417, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb2cd5119c134e3d97ecc818fe8e7de4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c35e70e949ed4e7584dbb0c59453b56c", async() => {
                 BeginContext(85, 38, true);
                 WriteLiteral("\r\n\t<div>\r\n\t\t<h4>Speaker Photo</h4>\r\n\t\t");
                 EndContext();
                 BeginContext(123, 83, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a34f8464eac24a1f9a487085ebc0aef8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7d2b3bc1528143ecb34f2dfd81d75066", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -142,7 +142,7 @@ AddHtmlAttributeValue("", 145, Model.ImagePath, 145, 16, false);
             WriteLiteral("\r\n<div class=\"row\" style=\"margin-top:20px\">\r\n\t");
             EndContext();
             BeginContext(518, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81aeb7f69b964106b3875321da6fab35", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01d5b1c6d4954212b42b18b30a3e7bfd", async() => {
                 BeginContext(561, 7, true);
                 WriteLiteral("Go Back");
                 EndContext();

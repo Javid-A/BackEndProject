@@ -119,7 +119,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("</strong>\r\n\t\t\t\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t\t\t\t");
             EndContext();
             BeginContext(822, 144, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da270c94243c4be5921a2e191c6ff806", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "977cb44ebde54a01aa9e361ed81d7c18", async() => {
                 BeginContext(903, 59, true);
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"mdi mdi-table-edit\"></i>\r\n\t\t\t\t\t\t\t\t\t\t");
                 EndContext();
@@ -155,7 +155,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t\t");
             EndContext();
             BeginContext(978, 147, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c45fcc70b18458c869f755fa8369fac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1eb4af3fdf1642208a91aa20abe2c3a4", async() => {
                 BeginContext(1060, 61, true);
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"mdi mdi-block-helper\"></i>\r\n\t\t\t\t\t\t\t\t\t\t");
                 EndContext();

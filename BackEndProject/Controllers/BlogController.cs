@@ -30,6 +30,7 @@ namespace BackEndProject.Controllers
             };
             return View(model);
         }
+
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return NotFound();
@@ -64,18 +65,25 @@ namespace BackEndProject.Controllers
             List<Blog> model = _db.Blogs.Include(c=>c.AppUser).Where(c => c.Title.Contains(search)||c.AppUser.UserName.Contains(search)).OrderByDescending(c=>c.Id).Take(5).ToList();
             return PartialView("_SearchBlogPartialView", model);
         }
-        public IActionResult SearchBtn(string search,int page = 1)
+        public IActionResult SearchBtn(string search)
         {
-            ViewBag.Page = page;
             ViewBag.SearchText = search;
 
-            ViewBag.PageCount = Math.Ceiling((decimal)_db.Blogs.Include(b => b.AppUser).Where(b=>b.AppUser.UserName.Contains(search)||b.Title.Contains(search)).Count() / 6);
+            List<Blog> blogs = _db.Blogs.Include(b => b.AppUser).Where(b => b.AppUser.UserName.Contains(search) || b.Title.Contains(search)).OrderByDescending(b => b.Id).ToList();
+            //ViewBag.BlogCount = blogs.Count;
 
-            List<Blog> model = _db.Blogs.Include(b => b.AppUser).Where(b => b.AppUser.UserName.Contains(search)||b.Title.Contains(search)).OrderByDescending(b=>b.Id).Skip((page - 1) * 6).Take(6).ToList();
+            List<Blog> model = _db.Blogs.Include(b => b.AppUser).Where(b => b.AppUser.UserName.Contains(search) || b.Title.Contains(search)).OrderByDescending(b => b.Id).Take(18).ToList();
 
             if (model.Count == 0) return Content("null");
 
             return PartialView("_SearchBlogBtnPartialView", model);
         }
+        //public IActionResult ViewMore(int skip)
+        //{
+        //    var search = Request.Form["searchBlogBtn"];
+        //    List<Blog> model = _db.Blogs.Include(b => b.AppUser).Where(b => b.AppUser.UserName.Contains(search) || b.Title.Contains(search)).OrderByDescending(b => b.Id).Skip(skip).Take(6).ToList();
+
+        //    return PartialView("_ViewMoreBlogsPartialView", model);
+        //}
     }
 }

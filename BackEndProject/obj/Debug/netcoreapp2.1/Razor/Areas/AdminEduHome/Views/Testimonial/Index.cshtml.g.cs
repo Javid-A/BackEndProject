@@ -71,7 +71,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("\r\n<div>\r\n\t<div class=\"row justify-content-between\">\r\n\t\t<div>\r\n\t\t\t<h4>Photo</h4>\r\n\t\t\t");
             EndContext();
             BeginContext(142, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dfc6bdf64c7c483ca2265ded9517b532", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fffb628db90e4a1e9f3febecb853b76d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -98,7 +98,7 @@ AddHtmlAttributeValue("", 170, Model.StudentImage, 170, 19, false);
             WriteLiteral("\r\n\t\t</div>\r\n\t\t");
             EndContext();
             BeginContext(240, 127, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92988fe4d3c14625ba0889d0e0f7f6d0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "22cd907d5d3b44878b35736c3a4b80e0", async() => {
                 BeginContext(359, 4, true);
                 WriteLiteral("Edit");
                 EndContext();

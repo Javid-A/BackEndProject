@@ -1,129 +1,154 @@
 ﻿@model BlogVM
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
 
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
-    <div class="banner-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="banner-content-wrapper">
-                        <div class="banner-content">
-                            <h2>blog / right side bar</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="banner-area text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="banner-content-wrapper">
+						<div class="banner-content">
+							<h2>blog / right side bar</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- Banner Area End -->
 <!-- Blog Start -->
 <div class="blog-area pt-150 pb-150">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row allBlogParent">
-                    @foreach (Blog blog in Model.Blogs)
-                    {
-                        <div class="allBlog col-md-6 col-sm-6 col-xs-12">
-                            <div class="single-blog mb-60">
-                                <div class="blog-img">
-                                    <a asp-action="Detail" asp-route-id="@blog.Id"><img src="~/img/blog/@blog.ImagePath" alt="blog"></a>
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-top">
-                                        <p>By @blog.AppUser.UserName  /  @blog.Date  /  <i class="fa fa-comments-o"></i> @blog.CommentCount</p>
-                                    </div>
-                                    <div class="blog-bottom">
-                                        <h2><a asp-action="Detail" asp-route-id="@blog.Id">@blog.Title</a></h2>
-                                        <a asp-action="Detail" asp-route-id="@blog.Id">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                    <div class="allPagination col-md-12">
-                        <div class="pagination">
-                            <ul>
-                                @for (int i = 1; i <= ViewBag.PageCount; i++)
-                                {
-                                    if (i == ViewBag.Page)
-                                    {
-                                        <li style="pointer-events:none;"><a style="background-color:#e6e6e6" href="/Blog/Index?page=@i">@i</a></li>
-                                    }
-                                    else
-                                    {
-                                        <li><a href="/Blog/Index?page=@i">@i</a></li>
-                                    }
-                                }
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row allBlogParent">
+					@foreach (Blog blog in Model.Blogs)
+					{
+						<div class="allBlog col-md-6 col-sm-6 col-xs-12">
+							<div class="single-blog mb-60">
+								<div class="blog-img">
+									<a asp-action="Detail" asp-route-id="@blog.Id"><img src="~/img/blog/@blog.ImagePath" alt="blog"></a>
+									<div class="blog-hover">
+										<i class="fa fa-link"></i>
+									</div>
+								</div>
+								<div class="blog-content">
+									<div class="blog-top">
+										<p>By @blog.AppUser.UserName  /  @blog.Date  /  <i class="fa fa-comments-o"></i> @blog.CommentCount</p>
+									</div>
+									<div class="blog-bottom">
+										<h2><a asp-action="Detail" asp-route-id="@blog.Id">@blog.Title</a></h2>
+										<a asp-action="Detail" asp-route-id="@blog.Id">read more</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+					<div class="allPagination col-md-12">
+						<div class="pagination">
+							<ul>
+								@for (int i = 1; i <= ViewBag.PageCount; i++)
+								{
+									if (i == ViewBag.Page)
+									{
+										<li style="pointer-events:none;"><a style="background-color:#e6e6e6" href="/Blog/Index?page=@i">@i</a></li>
+									}
+									else
+									{
+										<li><a href="/Blog/Index?page=@i">@i</a></li>
+									}
+								}
 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="blog-sidebar right">
-                    <div class="single-blog-widget mb-50">
-                        <h3>search</h3>
-                        <div class="blog-search">
-                            <span class="alert alert-danger errorText" style="display:none"></span>
-                            <form id="search" action="#">
-                                <input id="searchTextBlogv2" type="search" placeholder="Search..." name="search" />
-                                <ul id="searchULv2" style="position:absolute;background-color:whitesmoke;width:258px;z-index:15;">
-                                </ul>
-                                <button id="searchBlogBtn" type="submit">
-                                    <span><i class="fa fa-search"></i></span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="single-blog-widget mb-50">
-                        <h3>categories</h3>
-                        <ul>
-                            <li><a href="#">CSS Engineering (10)</a></li>
-                            <li><a href="#">Political Science (12)</a></li>
-                            <li><a href="#">Micro Biology (08)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
-                            <li><a href="#">Web Design (20)</a></li>
-                            <li><a href="#">PHP (23)</a></li>
-                        </ul>
-                    </div>
-                    <div class="single-blog-widget mb-50">
-                        <div class="single-blog-banner">
-                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.BestTheme.Id" id="blog"><img src="~/img/blog/@Model.BestTheme.ImagePath" alt="blog"></a>
-                            <h2>best<br> eductaion<br> theme</h2>
-                        </div>
-                    </div>
-                    <div class="single-blog-widget mb-50">
-                        <h3>latest post</h3>
-                        @foreach (var post in Model.LatestPosts)
-                        {
-                            <div class="single-post mb-30">
-                                <div class="single-post-img">
-                                    <a asp-controller="Blog" asp-action="Detail" asp-route-id="@post.Id">
-                                        <img style="height:70px !important;width:100px !important;" src="~/img/blog/@post.ImagePath" alt="post">
-                                        <div class="blog-hover">
-                                            <i class="fa fa-link"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-post-content">
-                                    <h4><a asp-controller="Blog" asp-action="Detail" asp-route-id="@post.Id">@post.Title</a></h4>
-                                    <p>By @post.AppUser.UserName  /  @post.Date</p>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="blog-sidebar right">
+					<div class="single-blog-widget mb-50">
+						<h3>search</h3>
+						<div class="blog-search">
+							<span class="alert alert-danger errorText" style="display:none"></span>
+							<form id="search" method="post">
+								<input id="searchTextBlogv2" type="search" placeholder="Search..." name="searchBlogBtn" />
+								<ul id="searchULv2" style="position:absolute;background-color:whitesmoke;width:258px;z-index:15;">
+								</ul>
+								<button id="searchBlogBtn" type="submit">
+									<span><i class="fa fa-search"></i></span>
+								</button>
+							</form>
+						</div>
+					</div>
+					<div class="single-blog-widget mb-50">
+						<h3>categories</h3>
+						<ul>
+							<li><a href="#">CSS Engineering (10)</a></li>
+							<li><a href="#">Political Science (12)</a></li>
+							<li><a href="#">Micro Biology (08)</a></li>
+							<li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
+							<li><a href="#">Web Design (20)</a></li>
+							<li><a href="#">PHP (23)</a></li>
+						</ul>
+					</div>
+					<div class="single-blog-widget mb-50">
+						<div class="single-blog-banner">
+							<a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.BestTheme.Id" id="blog"><img src="~/img/blog/@Model.BestTheme.ImagePath" alt="blog"></a>
+							<h2>best<br> eductaion<br> theme</h2>
+						</div>
+					</div>
+					<div class="single-blog-widget mb-50">
+						<h3>latest post</h3>
+						@foreach (var post in Model.LatestPosts)
+						{
+							<div class="single-post mb-30">
+								<div class="single-post-img">
+									<a asp-controller="Blog" asp-action="Detail" asp-route-id="@post.Id">
+										<img style="height:70px !important;width:100px !important;" src="~/img/blog/@post.ImagePath" alt="post">
+										<div class="blog-hover">
+											<i class="fa fa-link"></i>
+										</div>
+									</a>
+								</div>
+								<div class="single-post-content">
+									<h4><a asp-controller="Blog" asp-action="Detail" asp-route-id="@post.Id">@post.Title</a></h4>
+									<p>By @post.AppUser.UserName  /  @post.Date</p>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- Blog End -->
+@*<div>
+	<button style="display:none" class="viewMore"></button>
+</div>*@
+
+@*@section Scripts{
+	<script>
+		let skip = 6;
+		
+		//$(".viewMore").click(function () {
+			//let blogCount = $("#searchBlogCount").val();
+			//$.ajax({
+			//	url: "/Blog/ViewMore?skip=" + skip,
+			//	type: "Get",
+			//	success: function (response) {
+			//		$("#viewBlogs").append(response);
+			//		skip += 6;
+			//		if (skip >= blogCount) {
+			//			$("#viewMore").remove();
+			//		}
+			//	}
+			//})
+		//	console.log("ok")
+		//})
+	</script>
+}*@

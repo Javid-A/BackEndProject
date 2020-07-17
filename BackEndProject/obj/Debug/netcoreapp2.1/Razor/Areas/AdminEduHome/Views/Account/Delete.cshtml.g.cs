@@ -111,7 +111,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("</strong></span>\r\n                            </td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"row\">\r\n    ");
             EndContext();
             BeginContext(1190, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10fa4894b7714661ad87e7d078b1eb61", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3ae6007108841808eeb60e51ab53ac8", async() => {
                 BeginContext(1240, 75, true);
                 WriteLiteral("\r\n        <button type=\"submit\" class=\"btn btn-danger\">Block</button>\r\n    ");
                 EndContext();
@@ -137,7 +137,7 @@ using BackEndProject.ViewModels;
             WriteLiteral("\r\n</div>\r\n<div class=\"row mt-3\">\r\n    ");
             EndContext();
             BeginContext(1360, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2927a71f4134adf982c359d38746d31", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "95d53c7881d2468d93a787ceeb42e2bc", async() => {
                 BeginContext(1406, 7, true);
                 WriteLiteral("Go Back");
                 EndContext();
